@@ -1,0 +1,15 @@
+/// Transition
+/// @param {List} $properties - Properties
+/// @require {mixin} add-prefix
+/// @require {mixin} to-string
+
+@import './add-prefix.scss';
+@import './to-string.scss';
+
+@mixin transition($properties...) {
+  @if length($properties) >= 1 {
+    @include add-prefix('transition', to-string($properties, ' '));
+  } @else {
+    @include add-prefix('transition', 'all 0.2s ease-out 0.2s');
+  }
+}

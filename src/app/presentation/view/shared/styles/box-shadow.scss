@@ -1,0 +1,23 @@
+/// Box shadow
+/// Parametros e valores padrão
+/// @param {size} $x [2px] - X
+/// @param {size} $y [2px] - Y
+/// @param {size} $blur [5px] - Blur
+/// @param {color} $color [rgba(0,0,0,0.4)] - Color
+/// @param {Boolean} $inset - Inset
+
+@import "./add-prefix.scss";
+
+@mixin box-shadow(
+  $x: 0px,
+  $y: 0px,
+  $blur: 7px,
+  $color: rgba(0, 0, 0, 0.4),
+  $inset: ""
+) {
+  @if ($inset != "") {
+    @include add-prefix("box-shadow", $inset $x $y $blur $color);
+  } @else {
+    @include add-prefix("box-shadow", $x $y $blur $color);
+  }
+}
