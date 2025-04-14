@@ -1,0 +1,21 @@
+/// @param {@prop} Properties
+/// @param {@v} Values
+/// @require {mixin} add-prefix
+
+@mixin add-prefix($prop, $v, $important: '') {
+  @if ($important != '') {
+    -webkit-#{$prop}: #{$v} !important;
+    -khtml-#{$prop}: #{$v} !important;
+    -moz-#{$prop}: #{$v} !important;
+    -ms-#{$prop}: #{$v} !important;
+    -o-#{$prop}: #{$v} !important;
+    #{$prop}: #{$v} !important;
+  } @else {
+    -webkit-#{$prop}: #{$v};
+    -khtml-#{$prop}: #{$v};
+    -moz-#{$prop}: #{$v};
+    -ms-#{$prop}: #{$v};
+    -o-#{$prop}: #{$v};
+    #{$prop}: #{$v};
+  }
+}

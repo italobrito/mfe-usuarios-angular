@@ -1,2 +1,3 @@
-# mfe-usuarios-angular
-Esse MFE tem objetivo gerenciar dos usuarios do sistema erp
+# mfe-users
+
+Este repositório será utilizado em conjunto com o mfe-core, tendo como escopo a gerencia dos usuários.

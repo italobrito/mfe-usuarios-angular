@@ -1,0 +1,44 @@
+@import "./convert-px-to-rem.scss";
+
+$icon-face-length: toRem(38);
+$color-icon: white;
+
+$color-blue-default: #4e73df;
+$color-orange-warning: #f6c23e;
+$color-green: #1cc88a;
+$color-dark-green: #36b9cc;
+
+$color-line: rgba(255, 255, 255, 0.15);
+$line-default: 1px solid $color-line;
+$color-line-default: $color-line;
+
+// SIDEBAR
+$sidebar-open-width: toRem(210);
+$sidebar-close-width: toRem(
+  105
+); //Verificar duplicidade nos arq header.scss sidebar.scss
+
+$header-height: toRem(75);
+
+$break-point: 650px;
+
+$padding-big: toRem(24);
+$padding-default: toRem(16);
+
+$color-primary: rgb(63, 81, 181);
+
+$color-text-secundary: rgba(255, 255, 255, 0.4);
+
+// FAMILY
+$font-family-poppins: "Poppins", sans-serif;
+
+// SIZES
+$font-size-micro: toRem(8);
+$font-size-smallest: toRem(10);
+$font-size-small: toRem(12);
+$font-size-medium: toRem(14);
+$font-size-large: toRem(16);
+$font-size-largest: toRem(18);
+$font-size-big: toRem(20);
+$font-size-colossal: toRem(24);
+$font-size-biggest: toRem(34);

@@ -1,0 +1,15 @@
+@import "../styles/variables.scss";
+
+@media (max-width: $break-point) {
+  .sidebar-container {
+    width: $sidebar-close-width !important;
+  }
+  .header-container {
+    left: $sidebar-close-width !important;
+    width: calc(100% - $sidebar-close-width) !important;
+  }
+  .c-main {
+    left: $sidebar-close-width !important;
+    width: calc(100% - $sidebar-close-width) !important;
+  }
+}

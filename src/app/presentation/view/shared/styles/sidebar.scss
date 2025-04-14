@@ -1,0 +1,5 @@
+@import './box-shadow.scss';
+@import './convert-px-to-rem.scss';
+
+$sidebar-open-width: toRem(210);
+$sidebar-close-width: toRem(105);

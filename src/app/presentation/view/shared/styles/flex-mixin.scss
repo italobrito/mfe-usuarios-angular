@@ -1,0 +1,12 @@
+@import './add-prefix.scss';
+
+/// Mixin Flex
+/// Centraliza por default.
+/// @param {justify-content - X} : default => center
+/// @param {align-items - Y} : default => center
+
+@mixin insert-flex($posicaox: center, $posicaoy: center, $important: '') {
+  @include add-prefix('display', flex, $important);
+  @include add-prefix('align-items', $posicaoy, $important);
+  @include add-prefix('justify-content', $posicaox, $important);
+}

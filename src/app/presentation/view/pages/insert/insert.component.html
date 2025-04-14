@@ -1,0 +1,134 @@
+<section>
+  <form [formGroup]="_formulario" (ngSubmit)="onSubmit()">
+    <!-- <app-btp-input
+      label="Nome"
+      [control]="_formulario.get('nome')"
+    ></app-btp-input> -->
+    <app-btp-input
+      label="Cpf"
+      [mask]="'000.000.000-00'"
+      [control]="_formulario.get('cpfCnpj')"
+    ></app-btp-input>
+    <!-- <div class="container">
+      <div class="row">
+        <div class="col">
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <app-btp-input
+            label="'Nome Fantasia'"
+            [control]="_formulario.get('nomeFantasia')"
+          ></app-btp-input>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <app-btp-input
+            label="Rg"
+            [control]="_formulario.get('rg')"
+          ></app-btp-input>
+        </div>
+        <div class="col">
+
+        </div>
+      </div>
+    </div> -->
+
+    <button type="submit">Submeter</button>
+  </form>
+
+  <!-- <form [formGroup]="_formulario" (ngSubmit)="onSubmit()">
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        placeholder="Name"
+        formControlName="name"
+      />
+      <label for="name">Name</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="name@example.com"
+        formControlName="email"
+      />
+      <label for="email">Email address</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="Password"
+        formControlName="password"
+      />
+      <label for="password">Password</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <select class="form-select" id="gender" formControlName="gender">
+        <option value="" disabled selected>Select your gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+      <label for="gender">Gender</label>
+    </div> -->
+
+  <!-- <div class="mb-3">
+      <label for="interests">Interests</label>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="sports"
+          formControlName="sports"
+        />
+        <label class="form-check-label" for="sports">Sports</label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="music"
+          formControlName="music"
+        />
+        <label class="form-check-label" for="music">Music</label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="travel"
+          formControlName="travel"
+        />
+        <label class="form-check-label" for="travel">Travel</label>
+      </div>
+    </div> -->
+
+  <!-- <div class="form-floating mb-3">
+      <select class="form-select" id="country" formControlName="country">
+        <option value="" disabled selected>Select your country</option>
+        <option value="usa">USA</option>
+        <option value="canada">Canada</option>
+        <option value="uk">UK</option>
+        <option value="other">Other</option>
+      </select>
+      <label for="country">Country</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button> -->
+
+  <!-- </form> -->
+
+  <!-- </form> -->
+  <!-- <button (click)="updateContext()">CLIQUE PARA RODAR</button> -->
+</section>

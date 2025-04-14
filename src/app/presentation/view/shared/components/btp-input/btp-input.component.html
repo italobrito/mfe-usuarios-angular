@@ -1,0 +1,32 @@
+<div class="form-floating mb-3">
+  <input
+    *ngIf="!mask"
+    type="text"
+    class="form-control"
+    [attr.placeholder]="label"
+    [formControl]="control"
+    (input)="onInput($event)"
+    [ngClass]="{
+      'is-invalid': control.invalid && (control.dirty || control.touched),
+      }"
+  />
+  <input
+    *ngIf="mask"
+    [mask]="mask"
+    type="text"
+    class="form-control"
+    [attr.placeholder]="label"
+    [formControl]="control"
+    (input)="onInput($event)"
+    [ngClass]="{
+    'is-invalid': control.invalid && (control.dirty || control.touched),
+    }"
+  />
+  <label>{{ label }}</label>
+  <div
+    *ngIf="control.invalid && (control.dirty || control.touched)"
+    class="invalid-feedback"
+  >
+    {{ getErrorMessage() }}
+  </div>
+</div>

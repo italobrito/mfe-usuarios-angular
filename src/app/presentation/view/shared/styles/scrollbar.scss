@@ -1,0 +1,60 @@
+$width: 10px;
+
+/* width */
+::-webkit-scrollbar {
+  width: $width;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 100px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+::-webkit-scrollbar {
+  width: $width;
+  height: $width;
+  background-color: transparent;
+  border-top: $width solid transparent;
+  border-bottom: $width solid transparent;
+}
+
+::-webkit-scrollbar:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 100px;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+  min-height: $width;
+}
+
+::-webkit-scrollbar-thumb:vertical:active {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 100px;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+  min-height: $width;
+}
+
+::-webkit-scrollbar-thumb:horizontal:active {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 100px;
+}

@@ -1,0 +1,6 @@
+$browser-context: 16;
+
+@function toRem($value, $context: $browser-context) {
+  $remValue: calc($value / $browser-context);
+  @return #{$remValue}rem;
+}
