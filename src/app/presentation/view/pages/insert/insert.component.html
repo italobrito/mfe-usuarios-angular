@@ -9,15 +9,16 @@
           Informações Pessoais
         </button>
       </h2>
-      <div id="collapse_inf_pessoais" class="accordion-collapse collapse show" aria-labelledby="formulario_inf_pessoais"
-        data-bs-parent="#formulario_usuario">
+      <div id="collapse_inf_pessoais" class="accordion-collapse collapse show"
+        aria-labelledby="formulario_inf_pessoais">
         <div class="accordion-body container">
           <div class="row g-3">
             <div class="col-lg-9 col-md-6 col-sm-12">
               <app-btn-input label="Nome Completo" [control]="_formulario.get('nomeCompleto')"></app-btn-input>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-              <app-btp-dropdown label="Gênero" [control]="_formulario.get('genero')" [options]="_listaGeneros"></app-btp-dropdown>
+              <app-btp-dropdown label="Gênero" [control]="_formulario.get('genero')"
+                [options]="_listaGeneros"></app-btp-dropdown>
             </div>
           </div>
           <div class="row g-3">
@@ -25,10 +26,12 @@
               <app-btn-input label="Email" [control]="_formulario.get('email')"></app-btn-input>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
-              <app-btn-input label="Telefone" [control]="_formulario.get('telefone')" [mask]="'(00) 0 0000 0000'"></app-btn-input>
+              <app-btn-input label="Telefone" [control]="_formulario.get('telefone')"
+                [mask]="'(00) 0 0000 0000'"></app-btn-input>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
-              <app-btn-input label="Data Nascimento" [control]="_formulario.get('dataNascimento')" [mask]="'00/00/0000'"></app-btn-input>
+              <app-btn-input label="Data Nascimento" [control]="_formulario.get('dataNascimento')"
+                [mask]="'00/00/0000'"></app-btn-input>
             </div>
           </div>
         </div>
@@ -43,8 +46,7 @@
           Endereço
         </button>
       </h2>
-      <div id="collapse_endereco" class="accordion-collapse collapse" aria-labelledby="formulario_endereco"
-        data-bs-parent="#formulario_usuario">
+      <div id="collapse_endereco" class="accordion-collapse collapse" aria-labelledby="formulario_endereco">
         <div class="accordion-body container">
           <div class="row g-3">
             <div class="col-lg-6 col-md-6 col-sm-12">
@@ -65,10 +67,12 @@
               <app-btn-input label="Cidade" [control]="_formulario.get('cidade')"></app-btn-input>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-              <app-btp-dropdown label="Estado" [control]="_formulario.get('estado')" [options]="_listaEstados"></app-btp-dropdown>
+              <app-btp-dropdown label="Estado" [control]="_formulario.get('estado')"
+                [options]="_listaEstados"></app-btp-dropdown>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-              <app-btn-input label="CEP" [control]="_formulario.get('cep')" [mask]="'00000-000'" [maxLength]="9"></app-btn-input>
+              <app-btn-input label="CEP" [control]="_formulario.get('cep')" [mask]="'00000-000'"
+                [maxLength]="9"></app-btn-input>
             </div>
           </div>
         </div>
@@ -84,7 +88,7 @@
         </button>
       </h2>
       <div id="collapse_inf_profissional" class="accordion-collapse collapse"
-        aria-labelledby="formulario_inf_profissional" data-bs-parent="#formulario_usuario">
+        aria-labelledby="formulario_inf_profissional">
         <div class="accordion-body container">
           <div class="row g-3">
             <div class="col-lg-4 col-md-6 col-sm-12">
@@ -94,18 +98,22 @@
               <app-btn-input label="Setor" [control]="_formulario.get('setor')"></app-btn-input>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
-              <app-btn-input label="Data Admissão" [control]="_formulario.get('dataAdmissao')" [mask]="'00/00/0000'"></app-btn-input>
+              <app-btn-input label="Data Admissão" [control]="_formulario.get('dataAdmissao')"
+                [mask]="'00/00/0000'"></app-btn-input>
             </div>
           </div>
           <div class="row g-3">
             <div class="col-lg-4 col-md-6 col-sm-12">
-              <app-btp-dropdown label="Tipo Usuário" [control]="_formulario.get('tipoUsuario')" [options]="_listaTipoUsuario"></app-btp-dropdown>
+              <app-btp-dropdown label="Tipo Usuário" [control]="_formulario.get('tipoUsuario')"
+                [options]="_listaTipoUsuario"></app-btp-dropdown>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
-              <app-btp-dropdown label="Tema Preferido" [control]="_formulario.get('temaPreferido')" [options]="_listaTemas"></app-btp-dropdown>
+              <app-btp-dropdown label="Tema Preferido" [control]="_formulario.get('temaPreferido')"
+                [options]="_listaTemas"></app-btp-dropdown>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
-              <app-btp-dropdown label="Status" [control]="_formulario.get('status')" [options]="_listaStatus"></app-btp-dropdown>
+              <app-btp-dropdown label="Status" [control]="_formulario.get('status')"
+                [options]="_listaStatus"></app-btp-dropdown>
             </div>
           </div>
         </div>
@@ -120,8 +128,7 @@
           Foto do Perfil
         </button>
       </h2>
-      <div id="collapse_foto_perfil" class="accordion-collapse collapse" aria-labelledby="formulario_foto_perfil"
-        data-bs-parent="#formulario_usuario">
+      <div id="collapse_foto_perfil" class="accordion-collapse collapse" aria-labelledby="formulario_foto_perfil">
         <div class="accordion-body container">
           <app-avatar-imagem (avatarSelected)="onAvatarSelected($event)"></app-avatar-imagem>
         </div>
@@ -133,4 +140,3 @@
 <div class="mt-3 text-center">
   <button class="btn btn-primary" (click)="onSubmit()">Submeter</button>
 </div>
-

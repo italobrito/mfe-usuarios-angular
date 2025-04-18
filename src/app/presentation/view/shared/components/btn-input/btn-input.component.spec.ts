@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BtpInputComponent } from './btn-input.component';
+import { BtnInputComponent } from './btn-input.component';
 
-describe('BtpInputComponent', () => {
-  let component: BtpInputComponent;
-  let fixture: ComponentFixture<BtpInputComponent>;
+describe('BtnInputComponent', () => {
+  let component: BtnInputComponent;
+  let fixture: ComponentFixture<BtnInputComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [BtpInputComponent]
+      imports: [BtnInputComponent]
     });
-    fixture = TestBed.createComponent(BtpInputComponent);
+    fixture = TestBed.createComponent(BtnInputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
