@@ -1,24 +1,24 @@
 import { Routes } from '@angular/router';
 
-export const USERS_ROUTES: Routes = [
-  { path: '', redirectTo: '', pathMatch: 'full' },
+export const USUARIOS_ROUTES: Routes = [
+  { path: '', redirectTo: 'listar', pathMatch: 'full' },
   {
-    path: 'insert',
+    path: 'criar',
     loadComponent: () =>
       import('../pages/insert/insert.component').then((c) => c.InsertComponent),
   },
   {
-    path: 'update',
+    path: 'atualizar',
     loadComponent: () =>
       import('../pages/update/update.component').then((c) => c.UpdateComponent),
   },
   {
-    path: 'delete',
+    path: 'deletar',
     loadComponent: () =>
       import('../pages/delete/delete.component').then((c) => c.DeleteComponent),
   },
   {
-    path: 'list',
+    path: 'listar',
     loadComponent: () =>
       import('../pages/list/list.component').then((c) => c.ListComponent),
   },

@@ -4,8 +4,8 @@
     type="text"
     class="form-control"
     [attr.placeholder]="label"
+    [attr.maxLength]="maxLength"
     [formControl]="control"
-    (input)="onInput($event)"
     [ngClass]="{
       'is-invalid': control.invalid && (control.dirty || control.touched),
       }"
@@ -16,8 +16,8 @@
     type="text"
     class="form-control"
     [attr.placeholder]="label"
+    [attr.maxLength]="maxLength"
     [formControl]="control"
-    (input)="onInput($event)"
     [ngClass]="{
     'is-invalid': control.invalid && (control.dirty || control.touched),
     }"
@@ -27,6 +27,6 @@
     *ngIf="control.invalid && (control.dirty || control.touched)"
     class="invalid-feedback"
   >
-    {{ getErrorMessage() }}
+    {{ mensagemErro }}
   </div>
 </div>

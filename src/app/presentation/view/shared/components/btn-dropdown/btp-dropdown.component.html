@@ -1,0 +1,20 @@
+<div class="form-floating mb-3">
+  <select
+    class="form-select"
+    [formControl]="control"
+    [ngClass]="{
+      'is-invalid': control.invalid && (control.dirty || control.touched),
+    }"
+  >
+    <option *ngFor="let option of options" [value]="option.value">
+      {{ option.label }}
+    </option>
+  </select>
+  <label>{{ label }}</label>
+  <div
+    *ngIf="control.invalid && (control.dirty || control.touched)"
+    class="invalid-feedback"
+  >
+    {{ mensagemErro }}
+  </div>
+</div>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit, inject, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -12,10 +12,25 @@ import {
 import {
   ContextUseCaseService,
   UsersModule,
-  UserDefaultFormBuilderValidators,
 } from 'shared-forms';
+
 import { BtpInputComponent } from '@shared/components/btp-input/btp-input.component';
-// import { BtpInputComponent } from '@shared/components/btp-input/btp-input.component';
+import { BtpDropdownComponent } from '@shared/components/btn-dropdown/btp-dropdown.component';
+
+import { dataPadraoBrasileiro } from '@shared/validators/ValidaDataNascimento';
+import { validaTelefone } from '@shared/validators/ValidaTelefone';
+import { validaEmail } from '@shared/validators/ValidaEmail';
+import { validaCep } from '@shared/validators/ValidaCep';
+
+import { ESTADOS_BRASILEIROS } from '@shared/constants/estados-brasileiros';
+import { GENEROS } from '@shared/constants/generos';
+
+import { DropdownType } from '@entities/dropdown-type';
+import { TEMA_SISTEMA } from '@shared/constants/tema-sistema';
+import { TIPOS_USUARIOS } from '@shared/constants/tipos-usuarios';
+import { TIPOS_STATUS_USUARIO } from '@shared/constants/tipos-status-usuario';
+import { AvatarImagemComponent } from '@shared/components/avatar-imagem/avatar-imagem.component';
+
 
 @Component({
   selector: 'app-insert-users',
@@ -26,9 +41,12 @@ import { BtpInputComponent } from '@shared/components/btp-input/btp-input.compon
     RouterModule,
     UsersModule,
     BtpInputComponent,
+    BtpDropdownComponent,
+    AvatarImagemComponent
   ],
   templateUrl: './insert.component.html',
   styleUrls: ['./insert.component.scss'],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class InsertComponent implements OnInit {
   @Input() _form: FormGroup = new FormGroup({});
@@ -40,15 +58,18 @@ export class InsertComponent implements OnInit {
   _formulario: FormGroup = new FormGroup({});
   _formularioOrigem: FormGroup = new FormGroup({});
 
+  _listaEstados: Array<DropdownType> = ESTADOS_BRASILEIROS;
+  _listaGeneros: Array<DropdownType> = GENEROS;
+
+  _listaTemas: Array<DropdownType> = TEMA_SISTEMA;
+  _listaTipoUsuario: Array<DropdownType> = TIPOS_USUARIOS;
+
+  _listaStatus: Array<DropdownType> = TIPOS_STATUS_USUARIO;
+  
+
   ngOnInit(): void {
     this.contextUseCaseService.authFlow();
-    this._formulario = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.minLength(3)]],
-      nomeFantasia: [''],
-      cpfCnpj: ['', [Validators.required]],
-      rg: ['', [Validators.required]],
-    });
-    console.log(' this._formulario = ', this._formulario);
+    this.criarFormulario();
   }
 
   onSubmit(): void {
@@ -56,11 +77,37 @@ export class InsertComponent implements OnInit {
     console.log(this._formulario.value);
   }
 
-  // criarFormulario() {
-  //   this._formulario = this.formBuilder.group(
-  //     UserDefaultFormBuilderValidators.getModel()
-  //   );
-  // }
+  criarFormulario() {
+    // this._formulario = this.formBuilder.group(
+    //   UserDefaultFormBuilderValidators.getModel()
+    // );
+    this._formulario = this.formBuilder.group({
+      nomeCompleto: ['', [Validators.required, Validators.minLength(3)]],
+      genero: ['', [Validators.required]],
+      email: ['', [Validators.required, validaEmail()]],
+      telefone: ['', [Validators.required, validaTelefone()]],
+      dataNascimento: ['', [Validators.required, dataPadraoBrasileiro()]],
+
+      rua: ['', [Validators.required, Validators.minLength(3)]],
+      numero: ['', [Validators.required]],
+      complemento: ['', [Validators.required]],
+      bairro: ['', [Validators.required, Validators.minLength(3)]],
+      cidade: ['', [Validators.required, Validators.minLength(3)]],
+      estado: ['', [Validators.required]],
+      cep: ['', [Validators.required, validaCep()]],
+
+      cargo: ['', [Validators.required]],
+      setor: ['', [Validators.required]],
+      dataAdmissao: ['', [Validators.required, dataPadraoBrasileiro()]],
+
+      tipoUsuario: ['', [Validators.required]],
+      temaPreferido: ['', [Validators.required]],    
+      status: ['', [Validators.required]],     
+      
+      avatar: [''],  
+
+    });
+  }
 
   updateContext() {
     let newContext = this.contextUseCaseService.getContext();
@@ -75,12 +122,13 @@ export class InsertComponent implements OnInit {
     this.contextUseCaseService.setContext(newContext);
   }
 
-  cuspir() {
-    console.log(this._formulario.getRawValue());
+  onAvatarSelected(base64Image: any): void {
+    console.log('Imagem selecionada em Base64:', base64Image);
+    // Salve o Base64 no formulário ou envie para o backend
+    this._formulario.patchValue({ avatar: base64Image });
   }
 
-  get valorInputName() {
-    // console.log('this._formulario = ', this._formulario.get('name')?.errors);
-    return this._formulario.get('name')?.value;
+  cuspir() {
+    console.log(this._formulario.getRawValue());
   }
 }

@@ -5,7 +5,7 @@ import {
   RouterModule,
   withComponentInputBinding,
 } from '@angular/router';
-import { USERS_ROUTES } from './app/presentation/view/routes';
+import { USUARIOS_ROUTES } from './app/presentation/view/routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InsertComponent } from './app/presentation/view/pages/insert/insert.component';
 import { CommonModule } from '@angular/common';
@@ -13,6 +13,6 @@ import { CommonModule } from '@angular/common';
 bootstrapApplication(InsertComponent, {
   providers: [
     importProvidersFrom(CommonModule, RouterModule, BrowserAnimationsModule),
-    provideRouter(USERS_ROUTES, withComponentInputBinding()),
+    provideRouter(USUARIOS_ROUTES, withComponentInputBinding()),
   ],
 });
