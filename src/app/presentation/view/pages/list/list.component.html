@@ -1,1 +1,77 @@
-<div>List Users Work !</div>
+<div class="container mt-4">
+  <h2 class="mb-4">Lista de Usuários</h2>
+
+  <!-- Filtros -->
+  <div class="row mb-3">
+    <div class="col-md-4">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Pesquisar por nome"
+        [(ngModel)]="filters.nome"
+      />
+    </div>
+    <div class="col-md-4">
+      <select class="form-select" [(ngModel)]="filters.tipoUsuario">
+        <option value="">Todos os Tipos de Usuário</option>
+        <option *ngFor="let tipo of listaTipoUsuario" [value]="tipo.value">
+          {{ tipo.label }}
+        </option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <button class="btn btn-primary w-100" (click)="aplicarFiltros()">Filtrar</button>
+    </div>
+  </div>
+
+  <!-- Tabela de Usuários -->
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Tipo de Usuário</th>
+          <th>Status</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuariosPaginados; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ usuario.nome }}</td>
+          <td>{{ usuario.email }}</td>
+          <td>{{ usuario.tipoUsuario }}</td>
+          <td>{{ usuario.status }}</td>
+          <td>
+            <button class="btn btn-sm btn-warning me-2" (click)="editarUsuario(usuario)">Editar</button>
+            <button class="btn btn-sm btn-danger" (click)="removerUsuario(usuario)">Remover</button>
+          </td>
+        </tr>
+        <tr *ngIf="usuariosPaginados.length === 0">
+          <td colspan="6" class="text-center">Nenhum usuário encontrado.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Paginação -->
+  <nav *ngIf="totalPaginas > 1" aria-label="Navegação de página">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" [class.disabled]="paginaAtual === 1">
+        <button class="page-link" (click)="alterarPagina(paginaAtual - 1)">Anterior</button>
+      </li>
+      <li
+        class="page-item"
+        *ngFor="let pagina of paginas"
+        [class.active]="pagina === paginaAtual"
+      >
+        <button class="page-link" (click)="alterarPagina(pagina)">{{ pagina }}</button>
+      </li>
+      <li class="page-item" [class.disabled]="paginaAtual === totalPaginas">
+        <button class="page-link" (click)="alterarPagina(paginaAtual + 1)">Próximo</button>
+      </li>
+    </ul>
+  </nav>
+</div>

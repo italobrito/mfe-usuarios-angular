@@ -1,4 +1,5 @@
 <div class="accordion" id="formulario_usuario">
+  <h2>Cadastrar Usuário</h2>
   <form [formGroup]="_formulario" class="accordion-item" (ngSubmit)="onSubmit()">
     <!-- Informações Pessoais -->
     <div class="accordion-item">
@@ -13,7 +14,7 @@
         <div class="accordion-body container">
           <div class="row g-3">
             <div class="col-lg-9 col-md-6 col-sm-12">
-              <app-btp-input label="Nome Completo" [control]="_formulario.get('nomeCompleto')"></app-btp-input>
+              <app-btn-input label="Nome Completo" [control]="_formulario.get('nomeCompleto')"></app-btn-input>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
               <app-btp-dropdown label="Gênero" [control]="_formulario.get('genero')" [options]="_listaGeneros"></app-btp-dropdown>
@@ -21,13 +22,13 @@
           </div>
           <div class="row g-3">
             <div class="col-lg-4 col-md-6 col-sm-12">
-              <app-btp-input label="Email" [control]="_formulario.get('email')"></app-btp-input>
+              <app-btn-input label="Email" [control]="_formulario.get('email')"></app-btn-input>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
-              <app-btp-input label="Telefone" [control]="_formulario.get('telefone')" [mask]="'(00) 0 0000 0000'"></app-btp-input>
+              <app-btn-input label="Telefone" [control]="_formulario.get('telefone')" [mask]="'(00) 0 0000 0000'"></app-btn-input>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
-              <app-btp-input label="Data Nascimento" [control]="_formulario.get('dataNascimento')" [mask]="'00/00/0000'"></app-btp-input>
+              <app-btn-input label="Data Nascimento" [control]="_formulario.get('dataNascimento')" [mask]="'00/00/0000'"></app-btn-input>
             </div>
           </div>
         </div>
@@ -47,27 +48,27 @@
         <div class="accordion-body container">
           <div class="row g-3">
             <div class="col-lg-6 col-md-6 col-sm-12">
-              <app-btp-input label="Rua" [control]="_formulario.get('rua')"></app-btp-input>
+              <app-btn-input label="Rua" [control]="_formulario.get('rua')"></app-btn-input>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-6">
-              <app-btp-input label="Número" [control]="_formulario.get('numero')"></app-btp-input>
+              <app-btn-input label="Número" [control]="_formulario.get('numero')"></app-btn-input>
             </div>
             <div class="col-lg-4 col-md-3 col-sm-6">
-              <app-btp-input label="Complemento" [control]="_formulario.get('complemento')"></app-btp-input>
+              <app-btn-input label="Complemento" [control]="_formulario.get('complemento')"></app-btn-input>
             </div>
           </div>
           <div class="row g-3">
             <div class="col-lg-3 col-md-6 col-sm-12">
-              <app-btp-input label="Bairro" [control]="_formulario.get('bairro')"></app-btp-input>
+              <app-btn-input label="Bairro" [control]="_formulario.get('bairro')"></app-btn-input>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-              <app-btp-input label="Cidade" [control]="_formulario.get('cidade')"></app-btp-input>
+              <app-btn-input label="Cidade" [control]="_formulario.get('cidade')"></app-btn-input>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
               <app-btp-dropdown label="Estado" [control]="_formulario.get('estado')" [options]="_listaEstados"></app-btp-dropdown>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
-              <app-btp-input label="CEP" [control]="_formulario.get('cep')" [mask]="'00000-000'" [maxLength]="9"></app-btp-input>
+              <app-btn-input label="CEP" [control]="_formulario.get('cep')" [mask]="'00000-000'" [maxLength]="9"></app-btn-input>
             </div>
           </div>
         </div>
@@ -87,13 +88,13 @@
         <div class="accordion-body container">
           <div class="row g-3">
             <div class="col-lg-4 col-md-6 col-sm-12">
-              <app-btp-input label="Cargo" [control]="_formulario.get('cargo')"></app-btp-input>
+              <app-btn-input label="Cargo" [control]="_formulario.get('cargo')"></app-btn-input>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
-              <app-btp-input label="Setor" [control]="_formulario.get('setor')"></app-btp-input>
+              <app-btn-input label="Setor" [control]="_formulario.get('setor')"></app-btn-input>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
-              <app-btp-input label="Data Admissão" [control]="_formulario.get('dataAdmissao')" [mask]="'00/00/0000'"></app-btp-input>
+              <app-btn-input label="Data Admissão" [control]="_formulario.get('dataAdmissao')" [mask]="'00/00/0000'"></app-btn-input>
             </div>
           </div>
           <div class="row g-3">

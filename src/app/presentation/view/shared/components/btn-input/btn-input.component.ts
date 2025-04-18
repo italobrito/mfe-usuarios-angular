@@ -8,14 +8,14 @@ import { MaskDirective } from '@shared/directives/MaskDirective';
 import { BtnsAbstractComponent, getFormControlProvider } from '../abstract-components/btns-abstract';
 
 @Component({
-  selector: 'app-btp-input',
+  selector: 'app-btn-input',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, MaskDirective],
-  templateUrl: './btp-input.component.html',
-  styleUrls: ['./btp-input.component.scss'],
-  providers: [getFormControlProvider(BtpInputComponent)],
+  templateUrl: './btn-input.component.html',
+  styleUrls: ['./btn-input.component.scss'],
+  providers: [getFormControlProvider(BtnInputComponent)],
 })
-export class BtpInputComponent extends BtnsAbstractComponent {
+export class BtnInputComponent extends BtnsAbstractComponent {
   @Input() mask = '';
   @Input() maxLength: number | undefined; 
 }

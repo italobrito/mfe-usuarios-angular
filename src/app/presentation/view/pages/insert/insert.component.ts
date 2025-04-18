@@ -14,7 +14,7 @@ import {
   UsersModule,
 } from 'shared-forms';
 
-import { BtpInputComponent } from '@shared/components/btp-input/btp-input.component';
+import { BtnInputComponent } from '@shared/components/btn-input/btn-input.component';
 import { BtpDropdownComponent } from '@shared/components/btn-dropdown/btp-dropdown.component';
 
 import { dataPadraoBrasileiro } from '@shared/validators/ValidaDataNascimento';
@@ -40,7 +40,7 @@ import { AvatarImagemComponent } from '@shared/components/avatar-imagem/avatar-i
     ReactiveFormsModule,
     RouterModule,
     UsersModule,
-    BtpInputComponent,
+    BtnInputComponent,
     BtpDropdownComponent,
     AvatarImagemComponent
   ],
