@@ -6,9 +6,7 @@
     [attr.placeholder]="label"
     [attr.maxLength]="maxLength"
     [formControl]="control"
-    [ngClass]="{
-      'is-invalid': control.invalid && (control.dirty || control.touched),
-      }"
+    [ngClass]="{'is-invalid': isInvalido}"
   />
   <input
     *ngIf="mask"
@@ -18,13 +16,11 @@
     [attr.placeholder]="label"
     [attr.maxLength]="maxLength"
     [formControl]="control"
-    [ngClass]="{
-    'is-invalid': control.invalid && (control.dirty || control.touched),
-    }"
+    [ngClass]="{'is-invalid': isInvalido}"
   />
   <label>{{ label }}</label>
   <div
-    *ngIf="control.invalid && (control.dirty || control.touched)"
+    *ngIf="isInvalido"
     class="invalid-feedback"
   >
     {{ mensagemErro }}

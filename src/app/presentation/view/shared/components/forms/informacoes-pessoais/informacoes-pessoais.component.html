@@ -1,4 +1,4 @@
-<form class="accordion-body container" [formGroup]="formulario">
+<div class="accordion-body container" [formGroup]="formulario">
     <div class="row g-3">
         <div class="col-lg-9 col-md-6 col-sm-12">
             <app-btn-input label="Nome Completo" [control]="formulario.get('nomeCompleto')"></app-btn-input>
@@ -8,17 +8,28 @@
                 [options]="_listaGeneros"></app-btp-dropdown>
         </div>
     </div>
+
     <div class="row g-3">
         <div class="col-lg-4 col-md-6 col-sm-12">
-            <app-btn-input label="Email" [control]="formulario.get('email')"></app-btn-input>
+            <app-btn-input label="CPF" [control]="formulario.get('cpf')" [mask]="'000.000.000-00'" [maxLength]="14"></app-btn-input>
         </div>
         <div class="col-lg-4 col-md-6 col-sm-12">
-            <app-btn-input label="Telefone" [control]="formulario.get('telefone')"
-                [mask]="'(00) 0 0000 0000'"></app-btn-input>
+            <app-btn-input label="RG" [control]="formulario.get('rg')"></app-btn-input>
         </div>
         <div class="col-lg-4 col-md-6 col-sm-12">
             <app-btn-input label="Data Nascimento" [control]="formulario.get('dataNascimento')"
-                [mask]="'00/00/0000'"></app-btn-input>
+                [mask]="'00/00/0000'" [maxLength]="10"></app-btn-input>
         </div>
     </div>
-</form>
+
+    <div class="row g-3">
+        <div class="col-lg-9 col-md-6 col-sm-12">
+            <app-btn-input label="Email" [control]="formulario.get('email')"></app-btn-input>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <app-btn-input label="Telefone" [control]="formulario.get('telefone')"
+                [mask]="'(00) 0 0000 0000'" [maxLength]="16"></app-btn-input>
+        </div>
+
+    </div>
+</div>

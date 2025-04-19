@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, inject, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, OnInit, inject, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -6,24 +6,13 @@ import {
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
-  Validators,
 } from '@angular/forms';
 
 import {
   ContextUseCaseService,
-  UsersModule,
 } from 'shared-forms';
 
-import { BtnInputComponent } from '@shared/components/btn-input/btn-input.component';
-import { BtpDropdownComponent } from '@shared/components/btn-dropdown/btp-dropdown.component';
-
-import { dataPadraoBrasileiro } from '@shared/validators/ValidaDataNascimento';
-import { validaTelefone } from '@shared/validators/ValidaTelefone';
-import { validaEmail } from '@shared/validators/ValidaEmail';
-import { validaCep } from '@shared/validators/ValidaCep';
-
 import { ESTADOS_BRASILEIROS } from '@shared/constants/estados-brasileiros';
-import { GENEROS } from '@shared/constants/generos';
 
 import { DropdownType } from '@entities/dropdown-type';
 import { TEMA_SISTEMA } from '@shared/constants/tema-sistema';
@@ -33,8 +22,6 @@ import { AvatarImagemComponent } from '@shared/components/avatar-imagem/avatar-i
 
 import { InformacoesPessoaisFormBuilderValidators } from '@shared/forms-builders-validators/informacoes-pessoais';
 import { InformacoesPessoaisComponent } from '@shared/components/forms/informacoes-pessoais/informacoes-pessoais.component';
-import { getFormControlProvider } from '@shared/components/abstract-components/btns-abstract';
-
 
 @Component({
   selector: 'app-insert-users',
@@ -43,30 +30,20 @@ import { getFormControlProvider } from '@shared/components/abstract-components/b
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
-    UsersModule,
-    BtnInputComponent,
-    BtpDropdownComponent,
     AvatarImagemComponent,
     InformacoesPessoaisComponent
   ],
-  // providers: [getFormControlProvider(InsertComponent)],
   templateUrl: './insert.component.html',
   styleUrls: ['./insert.component.scss'],
-  
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class InsertComponent implements OnInit {
-  // @Input() _form: FormGroup = new FormGroup({});
-  // @Input() _formOrigem: FormGroup = new FormGroup({});
-
   private formBuilder = inject(FormBuilder);
   private contextUseCaseService = inject(ContextUseCaseService);
 
   _formulario!: FormGroup ;
-  // _formularioOrigem: FormGroup = new FormGroup({});
 
   _listaEstados: Array<DropdownType> = ESTADOS_BRASILEIROS;
-  // _listaGeneros: Array<DropdownType> = GENEROS;
 
   _listaTemas: Array<DropdownType> = TEMA_SISTEMA;
   _listaTipoUsuario: Array<DropdownType> = TIPOS_USUARIOS;
@@ -77,13 +54,14 @@ export class InsertComponent implements OnInit {
   ngOnInit(): void {
     this.contextUseCaseService.authFlow();
     this.criarFormulario();
-    console.log(this._formulario);
-    console.log(this._formulario.get('informacoesPessoais'));
+    console.log('InsertComponent Formulario COMPLETO',this._formulario);
+    console.log('InsertComponent informacoesPessoais = ',this._formulario.get('informacoesPessoais'));
   }
 
   onSubmit(): void {
-    // this._formulario.get('name')?.markAsDirty();
-    console.log(this._formulario.value);
+    console.log('FORMULARIO COMPLETO = ',this._formulario);
+    console.log('STATUS = ',this._formulario.status);
+    console.log('VALORES = ',this._formulario.getRawValue());
   }
 
   criarFormulario() {
@@ -92,7 +70,7 @@ export class InsertComponent implements OnInit {
     // );
     this._formulario = this.formBuilder.group({
 
-      informacoesPessoais: InformacoesPessoaisFormBuilderValidators.getModel(),
+      informacoesPessoais: this.formBuilder.group(InformacoesPessoaisFormBuilderValidators.getModel()),
 
       // endereco: this.formBuilder.group({}),
 
@@ -143,9 +121,5 @@ export class InsertComponent implements OnInit {
     console.log('Imagem selecionada em Base64:', base64Image);
     // Salve o Base64 no formulário ou envie para o backend
     this._formulario.patchValue({ avatar: base64Image });
-  }
-
-  cuspir() {
-    console.log(this._formulario.getRawValue());
   }
 }

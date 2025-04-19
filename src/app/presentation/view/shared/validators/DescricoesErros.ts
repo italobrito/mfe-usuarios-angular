@@ -9,7 +9,8 @@ export const descricoesErros = {
     idadeMaxima: 'A data não pode ser superior a 135 anos',
     idadeMinima: 'A data não pode ser inferior a 7 anos',
     telefoneInvalido: 'O telefone deve estar no formato (00) 0 0000 0000',
-    cepInvalido: 'O CEP deve estar no formato 00000-000'
+    cepInvalido: 'O CEP deve estar no formato 00000-000',
+    cpfInvalido: 'O CPF está inválido',
 } as any;
 
 export function getMensagemErro(control: FormControl): string | null {

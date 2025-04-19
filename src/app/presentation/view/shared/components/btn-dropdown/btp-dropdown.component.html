@@ -2,9 +2,7 @@
   <select
     class="form-select"
     [formControl]="control"
-    [ngClass]="{
-      'is-invalid': control.invalid && (control.dirty || control.touched),
-    }"
+    [ngClass]="{'is-invalid': isInvalido}"
   >
     <option *ngFor="let option of options" [value]="option.value">
       {{ option.label }}
@@ -12,7 +10,7 @@
   </select>
   <label>{{ label }}</label>
   <div
-    *ngIf="control.invalid && (control.dirty || control.touched)"
+    *ngIf="isInvalido"
     class="invalid-feedback"
   >
     {{ mensagemErro }}
