@@ -1,0 +1,28 @@
+<div class="accordion-body container">
+    <div class="row g-3">
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <app-btn-input label="Cargo" [control]="_formulario.get('cargo')"></app-btn-input>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <app-btn-input label="Setor" [control]="_formulario.get('setor')"></app-btn-input>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <app-btn-input label="Data Admissão" [control]="_formulario.get('dataAdmissao')"
+                [mask]="'00/00/0000'"></app-btn-input>
+        </div>
+    </div>
+    <div class="row g-3">
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <app-btp-dropdown label="Tipo Usuário" [control]="_formulario.get('tipoUsuario')"
+                [options]="_listaTipoUsuario"></app-btp-dropdown>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <app-btp-dropdown label="Tema Preferido" [control]="_formulario.get('temaPreferido')"
+                [options]="_listaTemas"></app-btp-dropdown>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <app-btp-dropdown label="Status" [control]="_formulario.get('status')"
+                [options]="_listaStatus"></app-btp-dropdown>
+        </div>
+    </div>
+</div>

@@ -31,6 +31,10 @@ import { TIPOS_USUARIOS } from '@shared/constants/tipos-usuarios';
 import { TIPOS_STATUS_USUARIO } from '@shared/constants/tipos-status-usuario';
 import { AvatarImagemComponent } from '@shared/components/avatar-imagem/avatar-imagem.component';
 
+import { InformacoesPessoaisFormBuilderValidators } from '@shared/forms-builders-validators/informacoes-pessoais';
+import { InformacoesPessoaisComponent } from '@shared/components/forms/informacoes-pessoais/informacoes-pessoais.component';
+import { getFormControlProvider } from '@shared/components/abstract-components/btns-abstract';
+
 
 @Component({
   selector: 'app-insert-users',
@@ -42,24 +46,27 @@ import { AvatarImagemComponent } from '@shared/components/avatar-imagem/avatar-i
     UsersModule,
     BtnInputComponent,
     BtpDropdownComponent,
-    AvatarImagemComponent
+    AvatarImagemComponent,
+    InformacoesPessoaisComponent
   ],
+  // providers: [getFormControlProvider(InsertComponent)],
   templateUrl: './insert.component.html',
   styleUrls: ['./insert.component.scss'],
+  
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class InsertComponent implements OnInit {
-  @Input() _form: FormGroup = new FormGroup({});
-  @Input() _formOrigem: FormGroup = new FormGroup({});
+  // @Input() _form: FormGroup = new FormGroup({});
+  // @Input() _formOrigem: FormGroup = new FormGroup({});
 
   private formBuilder = inject(FormBuilder);
   private contextUseCaseService = inject(ContextUseCaseService);
 
-  _formulario: FormGroup = new FormGroup({});
-  _formularioOrigem: FormGroup = new FormGroup({});
+  _formulario!: FormGroup ;
+  // _formularioOrigem: FormGroup = new FormGroup({});
 
   _listaEstados: Array<DropdownType> = ESTADOS_BRASILEIROS;
-  _listaGeneros: Array<DropdownType> = GENEROS;
+  // _listaGeneros: Array<DropdownType> = GENEROS;
 
   _listaTemas: Array<DropdownType> = TEMA_SISTEMA;
   _listaTipoUsuario: Array<DropdownType> = TIPOS_USUARIOS;
@@ -70,10 +77,12 @@ export class InsertComponent implements OnInit {
   ngOnInit(): void {
     this.contextUseCaseService.authFlow();
     this.criarFormulario();
+    console.log(this._formulario);
+    console.log(this._formulario.get('informacoesPessoais'));
   }
 
   onSubmit(): void {
-    this._formulario.get('name')?.markAsDirty();
+    // this._formulario.get('name')?.markAsDirty();
     console.log(this._formulario.value);
   }
 
@@ -82,27 +91,35 @@ export class InsertComponent implements OnInit {
     //   UserDefaultFormBuilderValidators.getModel()
     // );
     this._formulario = this.formBuilder.group({
-      nomeCompleto: ['', [Validators.required, Validators.minLength(3)]],
-      genero: ['', [Validators.required]],
-      email: ['', [Validators.required, validaEmail()]],
-      telefone: ['', [Validators.required, validaTelefone()]],
-      dataNascimento: ['', [Validators.required, dataPadraoBrasileiro()]],
 
-      rua: ['', [Validators.required, Validators.minLength(3)]],
-      numero: ['', [Validators.required]],
-      complemento: ['', [Validators.required]],
-      bairro: ['', [Validators.required, Validators.minLength(3)]],
-      cidade: ['', [Validators.required, Validators.minLength(3)]],
-      estado: ['', [Validators.required]],
-      cep: ['', [Validators.required, validaCep()]],
+      informacoesPessoais: InformacoesPessoaisFormBuilderValidators.getModel(),
 
-      cargo: ['', [Validators.required]],
-      setor: ['', [Validators.required]],
-      dataAdmissao: ['', [Validators.required, dataPadraoBrasileiro()]],
+      // endereco: this.formBuilder.group({}),
 
-      tipoUsuario: ['', [Validators.required]],
-      temaPreferido: ['', [Validators.required]],    
-      status: ['', [Validators.required]],     
+      // informacoesProfissionais: this.formBuilder.group({}),
+
+
+      // nomeCompleto: ['', [Validators.required, Validators.minLength(3)]],
+      // genero: ['', [Validators.required]],
+      // email: ['', [Validators.required, validaEmail()]],
+      // telefone: ['', [Validators.required, validaTelefone()]],
+      // dataNascimento: ['', [Validators.required, dataPadraoBrasileiro()]],
+
+      // rua: ['', [Validators.required, Validators.minLength(3)]],
+      // numero: ['', [Validators.required]],
+      // complemento: ['', [Validators.required]],
+      // bairro: ['', [Validators.required, Validators.minLength(3)]],
+      // cidade: ['', [Validators.required, Validators.minLength(3)]],
+      // estado: ['', [Validators.required]],
+      // cep: ['', [Validators.required, validaCep()]],
+
+      // cargo: ['', [Validators.required]],
+      // setor: ['', [Validators.required]],
+      // dataAdmissao: ['', [Validators.required, dataPadraoBrasileiro()]],
+
+      // tipoUsuario: ['', [Validators.required]],
+      // temaPreferido: ['', [Validators.required]],    
+      // status: ['', [Validators.required]],     
       
       avatar: [''],  
 

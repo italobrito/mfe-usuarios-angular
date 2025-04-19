@@ -3,38 +3,19 @@
   <form [formGroup]="_formulario" class="accordion-item" (ngSubmit)="onSubmit()">
     <!-- Informações Pessoais -->
     <div class="accordion-item">
+
       <h2 class="accordion-header" id="formulario_inf_pessoais">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_inf_pessoais"
           aria-expanded="true" aria-controls="collapse_inf_pessoais">
           Informações Pessoais
         </button>
       </h2>
+
       <div id="collapse_inf_pessoais" class="accordion-collapse collapse show"
         aria-labelledby="formulario_inf_pessoais">
-        <div class="accordion-body container">
-          <div class="row g-3">
-            <div class="col-lg-9 col-md-6 col-sm-12">
-              <app-btn-input label="Nome Completo" [control]="_formulario.get('nomeCompleto')"></app-btn-input>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-              <app-btp-dropdown label="Gênero" [control]="_formulario.get('genero')"
-                [options]="_listaGeneros"></app-btp-dropdown>
-            </div>
-          </div>
-          <div class="row g-3">
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <app-btn-input label="Email" [control]="_formulario.get('email')"></app-btn-input>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <app-btn-input label="Telefone" [control]="_formulario.get('telefone')"
-                [mask]="'(00) 0 0000 0000'"></app-btn-input>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-              <app-btn-input label="Data Nascimento" [control]="_formulario.get('dataNascimento')"
-                [mask]="'00/00/0000'"></app-btn-input>
-            </div>
-          </div>
-        </div>
+
+        <app-informacoes-pessoais [formulario]="_formulario.get('informacoesPessoais')"></app-informacoes-pessoais>
+
       </div>
     </div>
 
@@ -47,7 +28,7 @@
         </button>
       </h2>
       <div id="collapse_endereco" class="accordion-collapse collapse" aria-labelledby="formulario_endereco">
-        <div class="accordion-body container">
+        <!-- <div class="accordion-body container">
           <div class="row g-3">
             <div class="col-lg-6 col-md-6 col-sm-12">
               <app-btn-input label="Rua" [control]="_formulario.get('rua')"></app-btn-input>
@@ -75,7 +56,7 @@
                 [maxLength]="9"></app-btn-input>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -89,7 +70,7 @@
       </h2>
       <div id="collapse_inf_profissional" class="accordion-collapse collapse"
         aria-labelledby="formulario_inf_profissional">
-        <div class="accordion-body container">
+        <!-- <div class="accordion-body container">
           <div class="row g-3">
             <div class="col-lg-4 col-md-6 col-sm-12">
               <app-btn-input label="Cargo" [control]="_formulario.get('cargo')"></app-btn-input>
@@ -116,7 +97,7 @@
                 [options]="_listaStatus"></app-btp-dropdown>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
 
