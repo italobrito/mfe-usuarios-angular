@@ -21,7 +21,7 @@ import { InformacoesEnderecoComponent } from '@shared/components/forms/informaco
 import { InformacoesProfissionaisComponent } from '@shared/components/forms/informacoes-profissionais/informacoes-profissionais.component';
 
 @Component({
-  selector: 'app-insert-users',
+  selector: 'app-cadastrar-usuario',
   standalone: true,
   imports: [
     CommonModule,
@@ -32,11 +32,10 @@ import { InformacoesProfissionaisComponent } from '@shared/components/forms/info
     InformacoesEnderecoComponent,
     InformacoesProfissionaisComponent
   ],
-  templateUrl: './insert.component.html',
-  styleUrls: ['./insert.component.scss'],
+  templateUrl: './cadastrar.component.html',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class InsertComponent implements OnInit {
+export class CadastrarComponent implements OnInit {
   private formBuilder = inject(FormBuilder);
   private contextUseCaseService = inject(ContextUseCaseService);
 
@@ -45,17 +44,22 @@ export class InsertComponent implements OnInit {
   ngOnInit(): void {
     this.contextUseCaseService.authFlow();
     this.criarFormulario();
-    console.log('InsertComponent Formulario COMPLETO', this._formulario);
-    console.log('InsertComponent informacoesPessoais = ', this._formulario.get('informacoesPessoais'));
+    console.log('CadastrarComponent Formulario COMPLETO', this._formulario);
+    console.log('CadastrarComponent informacoesPessoais = ', this._formulario.get('informacoesPessoais'));
   }
 
-  onSubmit(): void {
+  submeterFormulario(): void {
     console.log('FORMULARIO COMPLETO = ', this._formulario);
     console.log('STATUS = ', this._formulario.status);
     console.log('INFORMACOES PESSOAIS valido = ', this._formulario.get('informacoesPessoais')?.status);
     console.log('ENDERECO valido = ', this._formulario.get('endereco')?.status);
     console.log('informacoesProfissionais valido = ', this._formulario.get('informacoesProfissionais')?.status);
     console.log('VALORES = ', this._formulario.getRawValue());
+    this.ativarValidacoes()
+  }
+
+  ativarValidacoes(): void {
+    this._formulario.markAllAsTouched();
   }
 
   criarFormulario() {

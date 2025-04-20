@@ -5,13 +5,12 @@ import { DropdownType } from '@entities/dropdown-type';
 import { TIPOS_USUARIOS } from '@shared/constants/tipos-usuarios';
 
 @Component({
-  selector: 'app-list-users',
+  selector: 'app-listar-usuarios',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss'],
+  templateUrl: './listar.component.html',
 })
-export class ListComponent implements OnInit {
+export class ListarComponent implements OnInit {
   usuarios: Array<any> = []; // Lista completa de usuários
   usuariosPaginados: Array<any> = []; // Lista de usuários para a página atual
   paginaAtual: number = 1;

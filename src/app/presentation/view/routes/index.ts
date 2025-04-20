@@ -5,21 +5,21 @@ export const USUARIOS_ROUTES: Routes = [
   {
     path: 'criar',
     loadComponent: () =>
-      import('../pages/insert/insert.component').then((c) => c.InsertComponent),
+      import('../pages/cadastrar/cadastrar.component').then((c) => c.CadastrarComponent),
   },
   {
     path: 'atualizar',
     loadComponent: () =>
-      import('../pages/update/update.component').then((c) => c.UpdateComponent),
+      import('../pages/atualizar/atualizar.component').then((c) => c.AtualizarComponent),
   },
   {
     path: 'deletar',
     loadComponent: () =>
-      import('../pages/delete/delete.component').then((c) => c.DeleteComponent),
+      import('../pages/deletar/deletar.component').then((c) => c.DeletarComponent),
   },
   {
     path: 'listar',
     loadComponent: () =>
-      import('../pages/list/list.component').then((c) => c.ListComponent),
+      import('../pages/listar/listar.component').then((c) => c.ListarComponent),
   },
 ];

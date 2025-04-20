@@ -1,6 +1,6 @@
 <div class="accordion" id="formulario_usuario">
   <h2>Cadastrar Usuário</h2>
-  <form [formGroup]="_formulario" class="accordion-item" (ngSubmit)="onSubmit()">
+  <form [formGroup]="_formulario" class="accordion-item">
     <!-- Informações Pessoais -->
     <div class="accordion-item">
       <h2 class="accordion-header" id="formulario_inf_pessoais">
@@ -57,5 +57,5 @@
 </div>
 
 <div class="mt-3 text-center">
-  <button class="btn btn-primary" (click)="onSubmit()">Submeter</button>
+  <button class="btn btn-primary" (click)="submeterFormulario()">Submeter</button>
 </div>

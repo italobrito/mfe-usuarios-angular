@@ -3,10 +3,9 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-update-users',
+  selector: 'app-atualizar-usuario',
   standalone: true,
   imports: [CommonModule, RouterModule],
-  templateUrl: './update.component.html',
-  styleUrls: ['./update.component.scss'],
+  templateUrl: './atualizar.component.html',
 })
-export class UpdateComponent {}
+export class AtualizarComponent {}

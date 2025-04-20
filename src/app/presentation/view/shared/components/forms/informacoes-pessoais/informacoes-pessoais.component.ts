@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -20,7 +20,6 @@ import { GENEROS } from '@shared/constants/generos';
     BtpDropdownComponent
   ],
   templateUrl: './informacoes-pessoais.component.html',
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class InformacoesPessoaisComponent extends FormsAbstractComponent {
   _listaGeneros: Array<DropdownType> = GENEROS;

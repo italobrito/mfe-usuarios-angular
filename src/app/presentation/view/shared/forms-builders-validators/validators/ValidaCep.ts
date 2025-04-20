@@ -8,7 +8,6 @@ export function validaCep(): ValidatorFn {
       return null;
     }
     const cepRegex = /^\d{5}-\d{3}$/;
-    console.log('value = ', value); 
     if (!cepRegex.test(value)) {
       return { cepInvalido: descricoesErros.cepInvalido };
     }
