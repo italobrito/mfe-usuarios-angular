@@ -7,24 +7,22 @@ import { Component, EventEmitter, Output, CUSTOM_ELEMENTS_SCHEMA } from '@angula
     imports: [CommonModule],
     templateUrl: './avatar-imagem.component.html',
     styleUrls: ['./avatar-imagem.component.scss'],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA], // Adicionado o CUSTOM_ELEMENTS_SCHEMA
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AvatarImagemComponent {
-    @Output() avatarSelected = new EventEmitter<string>(); // Emite o Base64 da imagem selecionada
-    selectedImage: string | null = null; // Armazena a imagem em Base64 para exibição
+    @Output() imagemSelecionada = new EventEmitter<string>();
+    selectedImage: string | null = null;
 
     onFileSelected(event: Event): void {
         const input = event.target as HTMLInputElement;
         if (input.files && input.files[0]) {
             const file = input.files[0];
             const reader = new FileReader();
-
             reader.onload = () => {
-                this.selectedImage = reader.result as string; // Converte a imagem para Base64
-                this.avatarSelected.emit(this.selectedImage); // Emite o Base64 para o componente pai
+                this.selectedImage = reader.result as string;
+                this.imagemSelecionada.emit(this.selectedImage);
             };
-
-            reader.readAsDataURL(file); // Lê o arquivo como Data URL (Base64)
+            reader.readAsDataURL(file);
         }
     }
 }

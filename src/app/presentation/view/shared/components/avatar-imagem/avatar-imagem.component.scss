@@ -1,15 +1,14 @@
+
+@import '../../styles/flex-mixin.scss';
+
 .avatar-selector {
-position: relative;
-  display: flex;
+  position: relative;
+  @include insert-flex(); 
   flex-direction: column;
-  align-items: center;
   cursor: pointer;
-  height: 300px;
 
   .avatar-label {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include insert-flex(); 
     width: 150px;
     height: 150px;
     border: 2px dashed #ccc;
@@ -26,9 +25,7 @@ position: relative;
   .avatar-preview {
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include insert-flex(); 
 
     .avatar-image {
       width: 100%;

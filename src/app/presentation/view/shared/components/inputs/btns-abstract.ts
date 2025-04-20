@@ -2,17 +2,15 @@ import { Input, Component, forwardRef, Provider } from '@angular/core';
 
 import { FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-import { getMensagemErro } from '@shared/validators/DescricoesErros';
+import { getMensagemErro } from '@shared/forms-builders-validators/validators/DescricoesErros';
 
 @Component({ selector: 'app-btns-abstract', template: '' })
 export abstract class BtnsAbstractComponent {
     @Input() label: string = '';
     @Input() control!: FormControl;
-
     get isInvalido(): boolean {
         return this.control ? this.control.invalid && (this.control.dirty || this.control.touched) : false;
     }
-
     get mensagemErro(): string | null {
         return getMensagemErro(this.control);
     }

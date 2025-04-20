@@ -1,28 +1,28 @@
-<div class="accordion-body container">
+<div class="accordion-body container" [formGroup]="formulario">
     <div class="row g-3">
         <div class="col-lg-6 col-md-6 col-sm-12">
-            <app-btn-input label="Rua" [control]="_formulario.get('rua')"></app-btn-input>
+            <app-btn-input label="Rua" [control]="formulario.get('rua')"></app-btn-input>
         </div>
         <div class="col-lg-2 col-md-3 col-sm-6">
-            <app-btn-input label="Número" [control]="_formulario.get('numero')"></app-btn-input>
+            <app-btn-input label="Número" [control]="formulario.get('numero')"></app-btn-input>
         </div>
         <div class="col-lg-4 col-md-3 col-sm-6">
-            <app-btn-input label="Complemento" [control]="_formulario.get('complemento')"></app-btn-input>
+            <app-btn-input label="Complemento" [control]="formulario.get('complemento')"></app-btn-input>
         </div>
     </div>
     <div class="row g-3">
         <div class="col-lg-3 col-md-6 col-sm-12">
-            <app-btn-input label="Bairro" [control]="_formulario.get('bairro')"></app-btn-input>
+            <app-btn-input label="Bairro" [control]="formulario.get('bairro')"></app-btn-input>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12">
-            <app-btn-input label="Cidade" [control]="_formulario.get('cidade')"></app-btn-input>
+            <app-btn-input label="Cidade" [control]="formulario.get('cidade')"></app-btn-input>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12">
-            <app-btp-dropdown label="Estado" [control]="_formulario.get('estado')"
+            <app-btp-dropdown label="Estado" [control]="formulario.get('estado')"
                 [options]="_listaEstados"></app-btp-dropdown>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12">
-            <app-btn-input label="CEP" [control]="_formulario.get('cep')" [mask]="'00000-000'"
+            <app-btn-input label="CEP" [control]="formulario.get('cep')" [mask]="'00000-000'"
                 [maxLength]="9"></app-btn-input>
         </div>
     </div>

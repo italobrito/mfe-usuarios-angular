@@ -5,14 +5,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { MaskDirective } from '@shared/directives/MaskDirective';
 
-import { BtnsAbstractComponent, getFormControlProvider } from '../abstract-components/btns-abstract';
+import { BtnsAbstractComponent, getFormControlProvider } from '../btns-abstract';
 
 @Component({
   selector: 'app-btn-input',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, MaskDirective],
   templateUrl: './btn-input.component.html',
-  styleUrls: ['./btn-input.component.scss'],
   providers: [getFormControlProvider(BtnInputComponent)],
 })
 export class BtnInputComponent extends BtnsAbstractComponent {

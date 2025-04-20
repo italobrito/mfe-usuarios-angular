@@ -1,9 +1,9 @@
 import { Validators } from "@angular/forms";
-import { validaCpf } from "@shared/validators/ValidaCpf";
 
-import { dataPadraoBrasileiro } from "@shared/validators/ValidaDataNascimento";
-import { validaEmail } from "@shared/validators/ValidaEmail";
-import { validaTelefone } from "@shared/validators/ValidaTelefone";
+import { validaCpf } from "@shared/forms-builders-validators/validators/ValidaCpf";
+import { dataPadraoBrasileiro } from "@shared/forms-builders-validators/validators/ValidaDataNascimento";
+import { validaEmail } from "@shared/forms-builders-validators/validators/ValidaEmail";
+import { validaTelefone } from "@shared/forms-builders-validators/validators/ValidaTelefone";
 
 export class InformacoesPessoaisFormBuilderValidators {
     static getModel() {
