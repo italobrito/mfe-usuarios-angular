@@ -1,16 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DropdownType } from '@entities/dropdown-type';
 import { TIPOS_USUARIOS } from '@shared/constants/tipos-usuarios';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-listar-usuarios',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './listar.component.html',
 })
 export class ListarComponent implements OnInit {
+  
+  // private router: Router = inject(Router);
+
+  constructor(private router: Router) {}
+
   usuarios: Array<any> = []; // Lista completa de usuários
   usuariosPaginados: Array<any> = []; // Lista de usuários para a página atual
   paginaAtual: number = 1;
@@ -33,11 +39,11 @@ export class ListarComponent implements OnInit {
   carregarUsuarios(): void {
     // Simulação de dados de usuários
     this.usuarios = [
-      { nome: 'João Silva', email: 'joao@email.com', tipoUsuario: 'Admin', status: 'Ativo' },
-      { nome: 'Maria Oliveira', email: 'maria@email.com', tipoUsuario: 'Usuário', status: 'Inativo' },
-      { nome: 'Carlos Souza', email: 'carlos@email.com', tipoUsuario: 'Admin', status: 'Ativo' },
-      { nome: 'Ana Costa', email: 'ana@email.com', tipoUsuario: 'Usuário', status: 'Ativo' },
-      { nome: 'Pedro Lima', email: 'pedro@email.com', tipoUsuario: 'Usuário', status: 'Inativo' },
+      { nome: 'João Silva', email: 'joao@email.com', tipoUsuario: 'Admin', status: 'Ativo', id: 1 },
+      { nome: 'Maria Oliveira', email: 'maria@email.com', tipoUsuario: 'Usuário', status: 'Inativo', id: 2  },
+      { nome: 'Carlos Souza', email: 'carlos@email.com', tipoUsuario: 'Admin', status: 'Ativo', id: 3  },
+      { nome: 'Ana Costa', email: 'ana@email.com', tipoUsuario: 'Usuário', status: 'Ativo', id: 4  },
+      { nome: 'Pedro Lima', email: 'pedro@email.com', tipoUsuario: 'Usuário', status: 'Inativo', id: 5  },
       // ... Adicione mais usuários conforme necessário
     ];
   }
@@ -82,6 +88,7 @@ export class ListarComponent implements OnInit {
 
   editarUsuario(usuario: any): void {
     console.log('Editar usuário:', usuario);
+    this.router.navigate([`/usuarios/atualizar/${usuario.id}`]);
     // Implementar lógica de edição
   }
 

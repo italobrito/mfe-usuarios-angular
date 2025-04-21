@@ -16,6 +16,7 @@ import { InformacoesProfissionaisComponent } from '@shared/components/forms/sub-
 import { AvatarImagemComponent } from '@shared/components/avatar-imagem/avatar-imagem.component';
 
 import { FormsAbstractComponent } from '../forms-abstract-component';
+import { NotificadorMensagensComponent } from '@shared/components/notificador-mensagens/notificador-mensagens.component';
 
 @Component({
   selector: 'app-informacoes-usuario',
@@ -27,7 +28,8 @@ import { FormsAbstractComponent } from '../forms-abstract-component';
     AvatarImagemComponent,
     InformacoesPessoaisComponent,
     InformacoesEnderecoComponent,
-    InformacoesProfissionaisComponent
+    InformacoesProfissionaisComponent,
+    NotificadorMensagensComponent
   ],
   templateUrl: './informacoes-usuario.component.html',
 })
