@@ -1,61 +1,8 @@
-<div class="accordion" id="formulario_usuario">
+<div class="accordion">
   <h2>Cadastrar Usuário</h2>
-  <form [formGroup]="_formulario" class="accordion-item">
-    <!-- Informações Pessoais -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="formulario_inf_pessoais">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_inf_pessoais"
-          aria-expanded="true" aria-controls="collapse_inf_pessoais">
-          Informações Pessoais
-        </button>
-      </h2>
-      <div id="collapse_inf_pessoais" class="accordion-collapse collapse show"
-        aria-labelledby="formulario_inf_pessoais">
-        <app-informacoes-pessoais [formulario]="_formulario.get('informacoesPessoais')"></app-informacoes-pessoais>
-      </div>
-    </div>
-    <!-- Endereço -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="formulario_endereco">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-          data-bs-target="#collapse_endereco" aria-expanded="false" aria-controls="collapse_endereco">
-          Endereço
-        </button>
-      </h2>
-      <div id="collapse_endereco" class="accordion-collapse collapse" aria-labelledby="formulario_endereco">
-        <app-informacoes-endereco [formulario]="_formulario.get('endereco')"></app-informacoes-endereco>
-      </div>
-    </div>
-    <!-- Informações Profissionais -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="formulario_inf_profissional">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-          data-bs-target="#collapse_inf_profissional" aria-expanded="false" aria-controls="collapse_inf_profissional">
-          Informações Profissionais, Permissões e Preferências
-        </button>
-      </h2>
-      <div id="collapse_inf_profissional" class="accordion-collapse collapse"
-        aria-labelledby="formulario_inf_profissional">
-        <app-informacoes-profissionais [formulario]="_formulario.get('informacoesProfissionais')"></app-informacoes-profissionais>
-      </div>
-    </div>
-    <!-- Foto do Perfil -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="formulario_foto_perfil">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-          data-bs-target="#collapse_foto_perfil" aria-expanded="false" aria-controls="collapse_foto_perfil">
-          Foto do Perfil
-        </button>
-      </h2>
-      <div id="collapse_foto_perfil" class="accordion-collapse collapse" aria-labelledby="formulario_foto_perfil">
-        <div class="accordion-body container">
-          <app-avatar-imagem (imagemSelecionada)="imagemSelecionada($event)"></app-avatar-imagem>
-        </div>
-      </div>
-    </div>
-  </form>
+  <app-informacoes-usuario></app-informacoes-usuario>
 </div>
 
-<div class="mt-3 text-center">
-  <button class="btn btn-primary" (click)="submeterFormulario()">Submeter</button>
-</div>
+<div class="mt-3 mb-1 text-end">
+  <button class="btn btn-primary me-2" (click)="solicitarRequisicao()">Criar</button>
+</div> 

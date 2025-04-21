@@ -6,7 +6,7 @@ import { TEMA_SISTEMA } from '@shared/constants/tema-sistema';
 import { TIPOS_USUARIOS } from '@shared/constants/tipos-usuarios';
 import { TIPOS_STATUS_USUARIO } from '@shared/constants/tipos-status-usuario';
 
-import { FormsAbstractComponent } from '../forms-abstract-component';
+import { SubFormsAbstractComponent } from '../sub-forms-abstract-component';
 
 import { DropdownType } from '@entities/dropdown-type';
 
@@ -24,7 +24,7 @@ import { BtpDropdownComponent } from '@shared/components/inputs/btn-dropdown/btp
   ],
   templateUrl: './informacoes-profissionais.component.html'
 })
-export class InformacoesProfissionaisComponent extends FormsAbstractComponent {
+export class InformacoesProfissionaisComponent extends SubFormsAbstractComponent {
   _listaTemas: Array<DropdownType> = TEMA_SISTEMA;
   _listaTipoUsuario: Array<DropdownType> = TIPOS_USUARIOS;
   _listaStatus: Array<DropdownType> = TIPOS_STATUS_USUARIO;

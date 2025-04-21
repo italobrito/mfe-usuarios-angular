@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { FormsAbstractComponent } from '../forms-abstract-component';
+import { SubFormsAbstractComponent } from '../sub-forms-abstract-component';
 
 import { BtnInputComponent } from '@shared/components/inputs/btn-input/btn-input.component';
 import { BtpDropdownComponent } from '@shared/components/inputs/btn-dropdown/btp-dropdown.component';
@@ -20,6 +20,6 @@ import { ESTADOS_BRASILEIROS } from '@shared/constants/estados-brasileiros';
   ],
   templateUrl: './informacoes-endereco.component.html',
 })
-export class InformacoesEnderecoComponent extends FormsAbstractComponent {
+export class InformacoesEnderecoComponent extends SubFormsAbstractComponent {
   _listaEstados: Array<DropdownType> = ESTADOS_BRASILEIROS;
 }

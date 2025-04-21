@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { FormsAbstractComponent } from '@shared/components/forms/forms-abstract-component';
+import { SubFormsAbstractComponent } from '@shared/components/forms/sub-forms/sub-forms-abstract-component';
 import { BtnInputComponent } from '@shared/components/inputs/btn-input/btn-input.component';
 import { BtpDropdownComponent } from '@shared/components/inputs/btn-dropdown/btp-dropdown.component';
 
@@ -21,6 +21,6 @@ import { GENEROS } from '@shared/constants/generos';
   ],
   templateUrl: './informacoes-pessoais.component.html',
 })
-export class InformacoesPessoaisComponent extends FormsAbstractComponent {
+export class InformacoesPessoaisComponent extends SubFormsAbstractComponent {
   _listaGeneros: Array<DropdownType> = GENEROS;
 }
