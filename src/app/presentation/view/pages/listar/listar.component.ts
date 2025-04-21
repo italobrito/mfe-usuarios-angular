@@ -1,9 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
+
 import { FormsModule } from '@angular/forms';
+
 import { DropdownType } from '@entities/dropdown-type';
 import { TIPOS_USUARIOS } from '@shared/constants/tipos-usuarios';
-import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-listar-usuarios',
@@ -13,9 +15,7 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class ListarComponent implements OnInit {
   
-  // private router: Router = inject(Router);
-
-  constructor(private router: Router) {}
+  private router: Router = inject(Router);
 
   usuarios: Array<any> = []; // Lista completa de usuários
   usuariosPaginados: Array<any> = []; // Lista de usuários para a página atual
@@ -87,9 +87,11 @@ export class ListarComponent implements OnInit {
   }
 
   editarUsuario(usuario: any): void {
-    console.log('Editar usuário:', usuario);
     this.router.navigate([`/usuarios/atualizar/${usuario.id}`]);
-    // Implementar lógica de edição
+  }
+
+  deletarUsuario(usuario: any): void {
+    this.router.navigate([`/usuarios/deletar/${usuario.id}`]);
   }
 
   removerUsuario(usuario: any): void {

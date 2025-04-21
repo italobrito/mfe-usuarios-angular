@@ -45,8 +45,8 @@
           <td>{{ usuario.tipoUsuario }}</td>
           <td>{{ usuario.status }}</td>
           <td>
-            <button class="btn btn-sm btn-warning me-2" (click)="editarUsuario(usuario)">Editar</button>
-            <button class="btn btn-sm btn-danger" (click)="removerUsuario(usuario)">Remover</button>
+            <button class="btn btn-sm btn-warning me-2" (click)="editarUsuario(usuario)">Atualizar</button>
+            <button class="btn btn-sm btn-danger" (click)="deletarUsuario(usuario)">Deletar</button>
           </td>
         </tr>
         <tr *ngIf="usuariosPaginados.length === 0">
