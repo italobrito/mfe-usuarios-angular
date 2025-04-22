@@ -15,7 +15,7 @@ export const USUARIOS_ROUTES: Routes = [
   {
     path: 'visualizar/:id',
     loadComponent: () =>
-      import('../pages/visualizar/visualizar.component').then((c) => c.visualizarComponent),
+      import('../pages/visualizar/visualizar.component').then((c) => c.VisualizarComponent),
   },
   {
     path: 'deletar/:id',

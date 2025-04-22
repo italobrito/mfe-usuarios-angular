@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, inject, ViewChild } from '@angular/core';
+import { CommonModule, Location } from '@angular/common';
 
 import { InformacoesUsuarioComponent } from './informacoes-usuario/informacoes-usuario.component';
 import { NotificadorMensagensComponent } from '../notificador-mensagens/notificador-mensagens.component';
@@ -13,16 +13,27 @@ import { NotificadorMensagensComponent } from '../notificador-mensagens/notifica
 export abstract class PagesAbstractComponent {
   @ViewChild(InformacoesUsuarioComponent) componente!: InformacoesUsuarioComponent;
   @ViewChild(NotificadorMensagensComponent) notificador!: NotificadorMensagensComponent;
+  
+  private location: Location = inject(Location);
+
+  _habilitarBotaoSalvar: boolean = true;
 
   abstract persistirDados(): void;
 
   solicitarRequisicao(): void {
     this.componente.ativarValidacoes();
+    console.log('this.componente._formulario.valid = ', this.componente._formulario.valid);
+    console.log('this.componente._formulario.getRawValue() = ', this.componente._formulario.getRawValue());
+    console.log('this.componente._formulario.getRawValue() = ', this.componente._formulario);
     if (this.componente._formulario.valid) {
       this.persistirDados();
     } else {
       this.notificador.adicionarMensagem('Atenção', 'O formulário está incompleto', 'atenção');
     }
+  }
+
+  voltar(): void {
+    this.location.back();
   }
 
   preencherFormularioMock(): void {

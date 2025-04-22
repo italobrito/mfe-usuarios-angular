@@ -3,7 +3,7 @@ import { Inject, Injectable } from '@angular/core';
 import { UsuarioFormulario } from '@entities/usuario';
 
 import { CadastrarUsuarioControllerInterface } from './interfaces/cadastrar-usuario-controller.interface';
-import { CADASTRAR_USUARIO_USE_CASE, CadastrarUsuarioUseCaseInterface } from 'src/app/domain/interfaces/use-cases/cadastrar-usuario.use-case.interface';
+import { CADASTRAR_USUARIO_USE_CASE, CadastrarUsuarioUseCaseInterface } from '@domain/interfaces/use-cases/cadastrar-usuario.use-case.interface';
 
 @Injectable({
     providedIn: 'root'

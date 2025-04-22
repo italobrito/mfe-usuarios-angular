@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 
 import { UsuarioFormulario } from '@entities/usuario';
-import { UsuarioRepositoryInterface } from '../../domain/interfaces/repositories/usuario-repository.interface';
-import { AtualizarUsuarioUseCaseInterface } from '../../domain/interfaces/use-cases/atualizar-usuario.use-case.interface';
+
+import { USUARIO_REPOSITORY, UsuarioRepositoryInterface } from '@domain/interfaces/repositories/usuario-repository.interface';
+import { AtualizarUsuarioUseCaseInterface } from '@domain/interfaces/use-cases/atualizar-usuario.use-case.interface';
 
 @Injectable({
     providedIn: 'root'
@@ -10,7 +11,7 @@ import { AtualizarUsuarioUseCaseInterface } from '../../domain/interfaces/use-ca
 export class AtualizarUsuarioUseCase implements AtualizarUsuarioUseCaseInterface {
 
     constructor(
-        private usuarioRepository: UsuarioRepositoryInterface,
+        @Inject(USUARIO_REPOSITORY) private usuarioRepository: UsuarioRepositoryInterface
     ) { }
 
     atualizar(usuario: UsuarioFormulario): Promise<UsuarioFormulario> {

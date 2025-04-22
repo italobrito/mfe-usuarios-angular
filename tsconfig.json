@@ -5,7 +5,12 @@
     "outDir": "./dist/out-tsc",
     "paths": {
       "@entities/*": ["src/app/domain/entities/*"],
-      "@shared/*": ["src/app/presentation/ui/shared/*"]
+      "@shared/*": ["src/app/presentation/ui/shared/*"],
+      "@controllers/*": ["src/app/presentation/controllers/*"],
+      "@domain/*": ["src/app/domain/*"],
+      "@application/*": ["src/app/application/*"],
+      "@use-cases/*": ["src/app/application/use-cases/*"],
+      "@repositories/*": ["src/app/data/repositories/*"],
     },
     "forceConsistentCasingInFileNames": true,
     "strict": true,

@@ -13,15 +13,8 @@ import { PagesAbstractComponent } from 'src/app/presentation/ui/shared/component
   ],
   templateUrl: './visualizar.component.html',
 })
-export class visualizarComponent extends PagesAbstractComponent {
-
-  private location: Location = inject(Location);
-
-  override persistirDados(): void {
+export class VisualizarComponent extends PagesAbstractComponent {
+  persistirDados(): void {
     console.log('visualizarComponent persistirDados', this.componente._formulario.getRawValue());
-  }
-
-  voltar(): void {
-    this.location.back();
   }
 }

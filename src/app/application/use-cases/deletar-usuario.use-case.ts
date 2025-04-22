@@ -1,18 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 
-import { UsuarioRepositoryInterface } from '../../domain/interfaces/repositories/usuario-repository.interface';
-import { DeletarUsuarioUseCaseInterface } from '../../domain/interfaces/use-cases/deletar-usuario.use-case.interface';
+import { DeletarUsuarioUseCaseInterface } from '@domain/interfaces/use-cases/deletar-usuario.use-case.interface';
+import { USUARIO_REPOSITORY, UsuarioRepositoryInterface } from '@domain/interfaces/repositories/usuario-repository.interface';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class DeletarUsuarioUseCase implements DeletarUsuarioUseCaseInterface {
+    constructor(@Inject(USUARIO_REPOSITORY) private usuarioRepository: UsuarioRepositoryInterface) { }
 
-    constructor(
-        private usuarioRepository: UsuarioRepositoryInterface,
-    ) { }
-
-    deletar(usuarioId: number): Promise<any> {
-        return this.usuarioRepository.deletar(usuarioId);
+    deletar(id: number): Promise<void> {
+        return this.usuarioRepository.deletar(id);
     }
 }

@@ -13,7 +13,6 @@ export class CrudUsuarioRepository implements UsuarioRepositoryInterface {
   ];
 
   cadastrar(usuario: UsuarioFormulario): Promise<UsuarioFormulario> {
-    console.log('CrudUsuarioRepository CADASTRAR', usuario);
     usuario.id = this.usuarios.length + 1;
     this.usuarios.push({id: usuario.id, nome: usuario.informacoesPessoais.nomeCompleto, email: usuario.informacoesPessoais.email, tipoUsuario: usuario.informacoesProfissionais.tipoUsuario, status: usuario.informacoesProfissionais.status}); 
     return Promise.resolve(usuario);

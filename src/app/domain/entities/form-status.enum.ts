@@ -1,0 +1,10 @@
+export enum FormStatus {
+  VALID = 'VALID',
+  INVALID = 'INVALID',
+  PENDING = 'PENDING',
+  DISABLED = 'DISABLED',
+  TOUCHED = 'TOUCHED',
+  UNTOUCHED = 'UNTOUCHED',
+  DIRTY = 'DIRTY',
+  PRISTINE = 'PRISTINE',
+}
