@@ -5,7 +5,7 @@
     "outDir": "./dist/out-tsc",
     "paths": {
       "@entities/*": ["src/app/domain/entities/*"],
-      "@shared/*": ["src/app/presentation/view/shared/*"]
+      "@shared/*": ["src/app/presentation/ui/shared/*"]
     },
     "forceConsistentCasingInFileNames": true,
     "strict": true,

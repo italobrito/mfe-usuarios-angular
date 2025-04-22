@@ -9,7 +9,7 @@ module.exports = withModuleFederationPlugin({
   name: "mfe-users",
 
   exposes: {
-    "./routes": "./src/app/presentation/view/routes",
+    "./routes": "./src/app/presentation/ui/routes",
   },
 
   shared: {
