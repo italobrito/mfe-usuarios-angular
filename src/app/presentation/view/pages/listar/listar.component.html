@@ -2,27 +2,22 @@
   <h2 class="mb-4">Lista de Usuários</h2>
 
   <!-- Filtros -->
-  <div class="row mb-3">
+  <form [formGroup]="formulario" class="row g-3 mb-3">
     <div class="col-md-4">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Pesquisar por nome"
-        [(ngModel)]="filters.nome"
-      />
+      <app-btn-input label="Pesquisar por nome" [control]="formulario.get('nome')"></app-btn-input>
     </div>
     <div class="col-md-4">
-      <select class="form-select" [(ngModel)]="filters.tipoUsuario">
-        <option value="">Todos os Tipos de Usuário</option>
-        <option *ngFor="let tipo of listaTipoUsuario" [value]="tipo.value">
-          {{ tipo.label }}
-        </option>
-      </select>
+      <app-btp-dropdown label="Tipo Usuário" [control]="formulario.get('tipoUsuario')"
+      [options]="_listaTipoUsuario"></app-btp-dropdown>
     </div>
     <div class="col-md-4">
+      <app-btp-dropdown label="Status" [control]="formulario.get('status')"
+      [options]="_listaStatus"></app-btp-dropdown>
+    </div>
+    <div class="col-12">
       <button class="btn btn-primary w-100" (click)="aplicarFiltros()">Filtrar</button>
     </div>
-  </div>
+  </form>
 
   <!-- Tabela de Usuários -->
   <div class="table-responsive">
@@ -34,22 +29,25 @@
           <th>Email</th>
           <th>Tipo de Usuário</th>
           <th>Status</th>
-          <th>Ações</th>
+          <th class="centralizar">Ações</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let usuario of usuariosPaginados; let i = index">
+        <tr *ngFor="let usuario of listaPaginada; let i = index">
           <td>{{ i + 1 }}</td>
           <td>{{ usuario.nome }}</td>
           <td>{{ usuario.email }}</td>
-          <td>{{ usuario.tipoUsuario }}</td>
-          <td>{{ usuario.status }}</td>
+          <td>{{ usuario.tipoUsuario | mapValueToLabel:'usuario' }}</td>
+          <td>{{ usuario.status | mapValueToLabel:'status' }}</td>
           <td>
-            <button class="btn btn-sm btn-warning me-2" (click)="editarUsuario(usuario)">Atualizar</button>
-            <button class="btn btn-sm btn-danger" (click)="deletarUsuario(usuario)">Deletar</button>
+            <div class="d-flex justify-content-center flex-wrap gap-2">
+              <button class="btn btn-sm btn-warning" (click)="editar(usuario)">Atualizar</button>
+              <button class="btn btn-sm btn-info" (click)="visualizar(usuario)">Visualizar</button>
+              <button class="btn btn-sm btn-danger" (click)="deletar(usuario)">Deletar</button>
+            </div>
           </td>
         </tr>
-        <tr *ngIf="usuariosPaginados.length === 0">
+        <tr *ngIf="listaPaginada.length === 0">
           <td colspan="6" class="text-center">Nenhum usuário encontrado.</td>
         </tr>
       </tbody>

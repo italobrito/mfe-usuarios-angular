@@ -1,102 +1,72 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { DropdownType } from '@entities/dropdown-type';
 import { TIPOS_USUARIOS } from '@shared/constants/tipos-usuarios';
+import { ListarAbstractComponent } from './listar-abstract.component';
+import { BtpDropdownComponent } from '@shared/components/inputs/btn-dropdown/btp-dropdown.component';
+import { BtnInputComponent } from '@shared/components/inputs/btn-input/btn-input.component';
+import { TIPOS_STATUS_USUARIO } from '@shared/constants/tipos-status-usuario';
+import { MapValueToLabelPipe } from '@shared/pipes/map-value-label-pipe';
+
+import { Usuario } from '@entities/usuario';
+import { filtrarPorPropriedades } from '@shared/utils/filtro-generico';
+import { removeAcentos } from '@shared/utils/remove-acentos';
 
 @Component({
   selector: 'app-listar-usuarios',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    ReactiveFormsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BtnInputComponent,
+    BtpDropdownComponent,
+    MapValueToLabelPipe
+  ],
   templateUrl: './listar.component.html',
+  styleUrls: ['./listar.component.scss'],
 })
-export class ListarComponent implements OnInit {
-  
-  private router: Router = inject(Router);
+export class ListarComponent extends ListarAbstractComponent<Usuario> {
 
-  usuarios: Array<any> = []; // Lista completa de usuários
-  usuariosPaginados: Array<any> = []; // Lista de usuários para a página atual
-  paginaAtual: number = 1;
-  itensPorPagina: number = 5;
-  totalPaginas: number = 0;
-  paginas: Array<number> = [];
+  protected override rotaBase = 'usuarios';
+  _listaTipoUsuario: Array<DropdownType> = TIPOS_USUARIOS;
+  _listaStatus: Array<DropdownType> = TIPOS_STATUS_USUARIO;
 
-  filters = {
-    nome: '',
-    tipoUsuario: '',
-  };
+  override listaDados = [{ nome: 'João Silva', email: 'joao@email.com', tipoUsuario: 'A', status: 'A', id: 1 },
+  { nome: 'Maria Oliveira', email: 'maria@email.com', tipoUsuario: 'C', status: 'I', id: 2 },
+  { nome: 'Carlos Souza', email: 'carlos@email.com', tipoUsuario: 'A', status: 'A', id: 3 },
+  { nome: 'Ana Costa', email: 'ana@email.com', tipoUsuario: 'C', status: 'A', id: 4 },
+  { nome: 'Pedro Lima', email: 'pedro@email.com', tipoUsuario: 'C', status: 'I', id: 5 },] as Array<Usuario>;
 
-  listaTipoUsuario: Array<DropdownType> = TIPOS_USUARIOS;
-
-  ngOnInit(): void {
-    this.carregarUsuarios();
-    this.atualizarPaginacao();
-  }
-
-  carregarUsuarios(): void {
-    // Simulação de dados de usuários
-    this.usuarios = [
-      { nome: 'João Silva', email: 'joao@email.com', tipoUsuario: 'Admin', status: 'Ativo', id: 1 },
-      { nome: 'Maria Oliveira', email: 'maria@email.com', tipoUsuario: 'Usuário', status: 'Inativo', id: 2  },
-      { nome: 'Carlos Souza', email: 'carlos@email.com', tipoUsuario: 'Admin', status: 'Ativo', id: 3  },
-      { nome: 'Ana Costa', email: 'ana@email.com', tipoUsuario: 'Usuário', status: 'Ativo', id: 4  },
-      { nome: 'Pedro Lima', email: 'pedro@email.com', tipoUsuario: 'Usuário', status: 'Inativo', id: 5  },
-      // ... Adicione mais usuários conforme necessário
-    ];
+  criarFormulario() {
+    this.formulario = this.formBuilder.group({
+      nome: [''],
+      status: [''],
+      tipoUsuario: [''],
+    });
   }
 
   aplicarFiltros(): void {
-    const { nome, tipoUsuario } = this.filters;
-    let usuariosFiltrados = this.usuarios;
-
+    const { nome, tipoUsuario, status } = this.formulario.value;
+    let usuarios = JSON.parse(JSON.stringify(this.listaDados));
     if (nome) {
-      usuariosFiltrados = usuariosFiltrados.filter((usuario) =>
-        usuario.nome.toLowerCase().includes(nome.toLowerCase())
+      const nomeNormalizado = removeAcentos(nome.toLowerCase());
+      usuarios = usuarios.filter((usuario: any) =>
+        removeAcentos(usuario.nome.toLowerCase()).includes(nomeNormalizado)
       );
     }
-
-    if (tipoUsuario) {
-      usuariosFiltrados = usuariosFiltrados.filter(
-        (usuario) => usuario.tipoUsuario === tipoUsuario
-      );
-    }
-
-    this.usuariosPaginados = usuariosFiltrados;
-    this.atualizarPaginacao();
-  }
-
-  atualizarPaginacao(): void {
-    const totalItens = this.usuariosPaginados.length;
-    this.totalPaginas = Math.ceil(totalItens / this.itensPorPagina);
-    this.paginas = Array.from({ length: this.totalPaginas }, (_, i) => i + 1);
-    this.alterarPagina(1);
-  }
-
-  alterarPagina(pagina: number): void {
-    if (pagina < 1 || pagina > this.totalPaginas) {
-      return;
-    }
-
-    this.paginaAtual = pagina;
-    const inicio = (pagina - 1) * this.itensPorPagina;
-    const fim = inicio + this.itensPorPagina;
-    this.usuariosPaginados = this.usuarios.slice(inicio, fim);
-  }
-
-  editarUsuario(usuario: any): void {
-    this.router.navigate([`/usuarios/atualizar/${usuario.id}`]);
-  }
-
-  deletarUsuario(usuario: any): void {
-    this.router.navigate([`/usuarios/deletar/${usuario.id}`]);
-  }
-
-  removerUsuario(usuario: any): void {
-    console.log('Remover usuário:', usuario);
-    this.usuarios = this.usuarios.filter((u) => u !== usuario);
-    this.aplicarFiltros();
+    usuarios = filtrarPorPropriedades(usuarios, {
+      tipoUsuario,
+      status,
+    });
+    this.listaPaginada = usuarios;
+    console.log('Usuários filtrados:', this.listaPaginada);
+    // this.atualizarPaginacao();
   }
 }
