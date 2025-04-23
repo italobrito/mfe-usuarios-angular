@@ -41,6 +41,7 @@ export class InformacoesUsuarioComponent extends FormsAbstractComponent {
       endereco: this.formBuilder.group(EnderecoFormBuilderValidators.getModel()),
       informacoesProfissionais: this.formBuilder.group(InformacoesProfissionaisFormBuilderValidators.getModel()),
       avatar: [''],
+      id: [''],
     });
   }
 }

@@ -8,11 +8,10 @@ import { ContextUseCaseService } from 'shared-forms';
   template: '',
 })
 export abstract class FormsAbstractComponent implements OnInit {
-  private _habilitarFormulario: boolean = false;
-
   protected formBuilder: FormBuilder = inject(FormBuilder);
   protected contextUseCaseService = inject(ContextUseCaseService);
-
+  
+  _habilitarFormulario: boolean = false;
   _formulario!: FormGroup;
 
   ngOnInit(): void {

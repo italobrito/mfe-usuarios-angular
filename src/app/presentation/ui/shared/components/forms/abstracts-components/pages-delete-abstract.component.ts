@@ -13,7 +13,6 @@ import { ActivatedRoute } from '@angular/router';
 export abstract class PagesDeleteAbstractComponent extends PagesDefaultAbstractComponent {
   
   protected router: ActivatedRoute = inject(ActivatedRoute);
-
   _formularioCarregado: boolean = false;
 
   ngOnInit(): void {
@@ -24,6 +23,8 @@ export abstract class PagesDeleteAbstractComponent extends PagesDefaultAbstractC
   }
 
   abstract persistirDados(): void;
+
+  abstract carregarDados(): void;
 
   solicitarPersistencia(): void {
     if (this._formularioCarregado) {

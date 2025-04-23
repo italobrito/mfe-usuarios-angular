@@ -14,7 +14,7 @@ export class AtualizarUsuarioUseCase implements AtualizarUsuarioUseCaseInterface
         @Inject(USUARIO_REPOSITORY) private usuarioRepository: UsuarioRepositoryInterface
     ) { }
 
-    atualizar(usuario: UsuarioFormulario): Promise<UsuarioFormulario> {
-        return this.usuarioRepository.atualizar(usuario);
+    atualizar(id: number, usuario: UsuarioFormulario): Promise<UsuarioFormulario> {
+        return this.usuarioRepository.atualizar(id, usuario);
     }
 }

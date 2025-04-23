@@ -7,16 +7,16 @@ export const USUARIOS_ROUTES: Routes = [
     loadComponent: () =>
       import('../pages/cadastrar/cadastrar.component').then((c) => c.CadastrarComponent),
   },
-  // {
-  //   path: 'atualizar/:id',
-  //   loadComponent: () =>
-  //     import('../pages/atualizar/atualizar.component').then((c) => c.AtualizarComponent),
-  // },
-  // {
-  //   path: 'visualizar/:id',
-  //   loadComponent: () =>
-  //     import('../pages/visualizar/visualizar.component').then((c) => c.VisualizarComponent),
-  // },
+  {
+    path: 'atualizar/:id',
+    loadComponent: () =>
+      import('../pages/atualizar/atualizar.component').then((c) => c.AtualizarComponent),
+  },
+  {
+    path: 'visualizar/:id',
+    loadComponent: () =>
+      import('../pages/visualizar/visualizar.component').then((c) => c.VisualizarComponent),
+  },
   {
     path: 'deletar/:id',
     loadComponent: () =>

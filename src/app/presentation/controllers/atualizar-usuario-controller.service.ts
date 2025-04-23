@@ -13,7 +13,7 @@ export class AtualizarUsuarioControllerService implements AtualizarUsuarioContro
     @Inject(ATUALIZAR_USUARIO_USE_CASE) private atualizarUsuarioUseCase: AtualizarUsuarioUseCaseInterface
   ) {}
 
-  atualizar(usuario: UsuarioFormulario): Promise<UsuarioFormulario> {
-    return this.atualizarUsuarioUseCase.atualizar(usuario);
+  atualizar(id: number, usuario: UsuarioFormulario): Promise<UsuarioFormulario> {
+    return this.atualizarUsuarioUseCase.atualizar(id, usuario);
   }
 }

@@ -4,12 +4,13 @@ import { CommonModule } from '@angular/common';
 import { InformacoesUsuarioComponent } from '@shared/components/forms/informacoes-usuario/informacoes-usuario.component';
 import { NotificadorMensagensComponent } from '@shared/components/notificador-mensagens/notificador-mensagens.component';
 import { PagesCreateUpdateAbstractComponent } from '@shared/components/forms/abstracts-components/pages-create-update-abstract.component';
+import { ModalComponent } from '@shared/components/modal/modal.component';
 
 import { CADASTRAR_USUARIO_CONTROLLER, CadastrarUsuarioControllerInterface } from '@controllers/interfaces/cadastrar-usuario-controller.interface';
 
 import { UsuarioFormulario } from '@entities/usuario';
 
-import { CadastrarProvidersModule } from './cadastrar-providers.module';
+import { CadastrarUsuarioProvidersModule } from '@shared/providers/cadastrar-usuario-providers.module';
 
 @Component({
   selector: 'app-cadastrar-usuario',
@@ -18,9 +19,10 @@ import { CadastrarProvidersModule } from './cadastrar-providers.module';
     CommonModule,
     InformacoesUsuarioComponent,
     NotificadorMensagensComponent,
-    CadastrarProvidersModule
+    ModalComponent,
+    CadastrarUsuarioProvidersModule
   ],
-  providers: [CadastrarProvidersModule],
+  providers: [CadastrarUsuarioProvidersModule],
   templateUrl: './cadastrar.component.html',
 })
 export class CadastrarComponent extends PagesCreateUpdateAbstractComponent implements OnInit {

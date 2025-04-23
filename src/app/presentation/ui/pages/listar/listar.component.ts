@@ -5,16 +5,20 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { DropdownType } from '@entities/dropdown-type';
-import { TIPOS_USUARIOS } from 'src/app/presentation/ui/shared/constants/tipos-usuarios';
-import { ListarAbstractComponent } from './listar-abstract.component';
-import { BtpDropdownComponent } from 'src/app/presentation/ui/shared/components/inputs/btn-dropdown/btp-dropdown.component';
-import { BtnInputComponent } from 'src/app/presentation/ui/shared/components/inputs/btn-input/btn-input.component';
-import { TIPOS_STATUS_USUARIO } from 'src/app/presentation/ui/shared/constants/tipos-status-usuario';
-import { MapValueToLabelPipe } from 'src/app/presentation/ui/shared/pipes/map-value-label-pipe';
+import { TIPOS_USUARIOS } from '@shared/constants/tipos-usuarios';
+
+import { ListarAbstractComponent } from '@shared/components/forms/abstracts-components/listar-abstract.component';
+import { BtpDropdownComponent } from '@shared/components/inputs/btn-dropdown/btp-dropdown.component';
+import { BtnInputComponent } from '@shared/components/inputs/btn-input/btn-input.component';
+
+import { TIPOS_STATUS_USUARIO } from '@shared/constants/tipos-status-usuario';
+
+import { MapValueToLabelPipe } from '@shared/pipes/map-value-label-pipe';
 
 import { Usuario } from '@entities/usuario';
-import { filtrarPorPropriedades } from 'src/app/presentation/ui/shared/utils/filtro-generico';
-import { removeAcentos } from 'src/app/presentation/ui/shared/utils/remove-acentos';
+
+import { filtrarPorPropriedades } from '@shared/utils/filtro-generico';
+import { removeAcentos } from '@shared/utils/remove-acentos';
 
 @Component({
   selector: 'app-listar-usuarios',
