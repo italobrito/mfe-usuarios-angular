@@ -1,42 +1,29 @@
 import { Component, inject, ViewChild } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 
-import { InformacoesUsuarioComponent } from './informacoes-usuario/informacoes-usuario.component';
-import { NotificadorMensagensComponent } from '../notificador-mensagens/notificador-mensagens.component';
+
+import { NotificadorMensagensComponent } from '@shared/components/notificador-mensagens/notificador-mensagens.component';
+import { InformacoesUsuarioComponent } from '@shared/components/forms/informacoes-usuario/informacoes-usuario.component';
 
 @Component({
-  selector: 'pages-abstract-component',
+  selector: 'pages-default-abstract-component',
   template: '',
   standalone: true,
   imports: [CommonModule],
 })
-export abstract class PagesAbstractComponent {
+export abstract class PagesDefaultAbstractComponent {
   @ViewChild(InformacoesUsuarioComponent) componente!: InformacoesUsuarioComponent;
   @ViewChild(NotificadorMensagensComponent) notificador!: NotificadorMensagensComponent;
   
   private location: Location = inject(Location);
 
-  _habilitarBotaoSalvar: boolean = true;
-
-  abstract persistirDados(): void;
-
-  solicitarRequisicao(): void {
-    this.componente.ativarValidacoes();
-    console.log('this.componente._formulario.valid = ', this.componente._formulario.valid);
-    console.log('this.componente._formulario.getRawValue() = ', this.componente._formulario.getRawValue());
-    console.log('this.componente._formulario.getRawValue() = ', this.componente._formulario);
-    if (this.componente._formulario.valid) {
-      this.persistirDados();
-    } else {
-      this.notificador.adicionarMensagem('Atenção', 'O formulário está incompleto', 'atenção');
-    }
-  }
+  _habilitarBotaoPersistir: boolean = true;
 
   voltar(): void {
     this.location.back();
   }
 
-  preencherFormularioMock(): void {
+  carregarDados(): void {
     const mockData = {
       informacoesPessoais: {
         nomeCompleto: 'João da Silva',

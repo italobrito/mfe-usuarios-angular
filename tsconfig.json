@@ -11,6 +11,7 @@
       "@application/*": ["src/app/application/*"],
       "@use-cases/*": ["src/app/application/use-cases/*"],
       "@repositories/*": ["src/app/data/repositories/*"],
+      "@ui/*": ["src/app/presentation/ui/*"],
     },
     "forceConsistentCasingInFileNames": true,
     "strict": true,
