@@ -4,7 +4,7 @@ import { DeletarUsuarioUseCase } from "@application/use-cases/deletar-usuario.us
 import { DELETAR_USUARIO_USE_CASE } from "@domain/interfaces/use-cases/deletar-usuario.use-case.interface";
 
 import { DeletarUsuarioControllerService } from "@controllers/deletar-usuario-controller.service";
-import { DELETAR_USUARIO_CONTROLLER } from "@controllers/interfaces/deletar-usuario-controller.interface";
+import { DELETAR_USUARIO_CONTROLLER } from "@domain/interfaces/controllers/deletar-usuario-controller.interface";
 
 import { CrudUsuarioMockRepository } from "@repositories/crud-usuario-mock.repository";
 import { USUARIO_REPOSITORY } from "@domain/interfaces/repositories/usuario-repository.interface";

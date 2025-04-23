@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 
-import { LISTAR_USUARIOS_CONTROLLER } from "@controllers/interfaces/listar-usuario-controller.interface";
+import { LISTAR_USUARIOS_CONTROLLER } from "@domain/interfaces/controllers/listar-usuario-controller.interface";
 import { ListarUsuariosControllerService } from "@controllers/listar-usuarios-controller.service";
 
 import { LISTAR_USUARIOS_USE_CASE } from "@domain/interfaces/use-cases/listar-usuarios.use-case.interface";

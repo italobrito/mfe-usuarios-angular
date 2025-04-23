@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 
 import { CadastrarUsuarioControllerService } from "@controllers/cadastrar-usuario-controller.service";
-import { CADASTRAR_USUARIO_CONTROLLER } from "@controllers/interfaces/cadastrar-usuario-controller.interface";
+import { CADASTRAR_USUARIO_CONTROLLER } from "@domain/interfaces/controllers/cadastrar-usuario-controller.interface";
 
 import { CADASTRAR_USUARIO_USE_CASE } from "@domain/interfaces/use-cases/cadastrar-usuario.use-case.interface";
 import { CadastrarUsuarioUseCase } from "@application/use-cases/cadastrar-usuario.use-case";

@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 
-import { DeletarUsuarioControllerInterface } from './interfaces/deletar-usuario-controller.interface';
+import { DeletarUsuarioControllerInterface } from '@domain/interfaces/controllers/deletar-usuario-controller.interface';
 import { DELETAR_USUARIO_USE_CASE, DeletarUsuarioUseCaseInterface } from '@domain/interfaces/use-cases/deletar-usuario.use-case.interface';
 
 @Injectable({

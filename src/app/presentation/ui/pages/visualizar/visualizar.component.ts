@@ -8,7 +8,7 @@ import { NotificadorMensagensComponent } from '@shared/components/notificador-me
 
 import { BuscarUsuarioPorIdProvidersModule } from '@shared/providers/buscar-usuario-por-id-providers.module';
 
-import { BUSCAR_USUARIO_POR_ID_CONTROLLER, BuscarUsuarioPorIdControllerInterface } from '@controllers/interfaces/buscar-usuario-por-id-controller.interface';
+import { BUSCAR_USUARIO_POR_ID_CONTROLLER, BuscarUsuarioPorIdControllerInterface } from '@domain/interfaces/controllers/buscar-usuario-por-id-controller.interface';
 
 import { UsuarioFormulario } from '@entities/usuario';
 

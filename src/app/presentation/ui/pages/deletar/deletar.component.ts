@@ -6,8 +6,8 @@ import { NotificadorMensagensComponent } from '@shared/components/notificador-me
 import { PagesDeleteAbstractComponent } from '@shared/components/forms/abstracts-components/pages-delete-abstract.component';
 import { ModalComponent } from '@shared/components/modal/modal.component';
 
-import { DELETAR_USUARIO_CONTROLLER, DeletarUsuarioControllerInterface } from '@controllers/interfaces/deletar-usuario-controller.interface';
-import { BUSCAR_USUARIO_POR_ID_CONTROLLER, BuscarUsuarioPorIdControllerInterface } from '@controllers/interfaces/buscar-usuario-por-id-controller.interface';
+import { DELETAR_USUARIO_CONTROLLER, DeletarUsuarioControllerInterface } from '@domain/interfaces/controllers/deletar-usuario-controller.interface';
+import { BUSCAR_USUARIO_POR_ID_CONTROLLER, BuscarUsuarioPorIdControllerInterface } from '@domain/interfaces/controllers/buscar-usuario-por-id-controller.interface';
 
 import { DeletarUsuarioProvidersModule } from '@shared/providers/deletar-usuario-providers.module';
 import { BuscarUsuarioPorIdProvidersModule } from '@shared/providers/buscar-usuario-por-id-providers.module';

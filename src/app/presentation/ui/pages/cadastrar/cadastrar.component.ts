@@ -6,7 +6,7 @@ import { NotificadorMensagensComponent } from '@shared/components/notificador-me
 import { PagesCreateUpdateAbstractComponent } from '@shared/components/forms/abstracts-components/pages-create-update-abstract.component';
 import { ModalComponent } from '@shared/components/modal/modal.component';
 
-import { CADASTRAR_USUARIO_CONTROLLER, CadastrarUsuarioControllerInterface } from '@controllers/interfaces/cadastrar-usuario-controller.interface';
+import { CADASTRAR_USUARIO_CONTROLLER, CadastrarUsuarioControllerInterface } from '@domain/interfaces/controllers/cadastrar-usuario-controller.interface';
 
 import { UsuarioFormulario } from '@entities/usuario';
 

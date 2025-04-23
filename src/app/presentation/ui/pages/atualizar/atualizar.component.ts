@@ -11,8 +11,8 @@ import { PagesCreateUpdateAbstractComponent } from '@shared/components/forms/abs
 import { AtualizarUsuarioProvidersModule } from '@shared/providers/atualizar-usuario-providers.module';
 import { BuscarUsuarioPorIdProvidersModule } from '@shared/providers/buscar-usuario-por-id-providers.module';
 
-import { ATUALIZAR_USUARIO_CONTROLLER, AtualizarUsuarioControllerInterface } from '@controllers/interfaces/atualizar-usuario-controller.interface';
-import { BUSCAR_USUARIO_POR_ID_CONTROLLER, BuscarUsuarioPorIdControllerInterface } from '@controllers/interfaces/buscar-usuario-por-id-controller.interface';
+import { ATUALIZAR_USUARIO_CONTROLLER, AtualizarUsuarioControllerInterface } from '@domain/interfaces/controllers/atualizar-usuario-controller.interface';
+import { BUSCAR_USUARIO_POR_ID_CONTROLLER, BuscarUsuarioPorIdControllerInterface } from '@domain/interfaces/controllers/buscar-usuario-por-id-controller.interface';
 
 import { UsuarioFormulario } from '@entities/usuario';
 

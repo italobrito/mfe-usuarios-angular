@@ -2,7 +2,7 @@ import { Injectable, Inject } from '@angular/core';
 
 import { UsuarioFormulario } from '@entities/usuario';
 
-import { AtualizarUsuarioControllerInterface } from './interfaces/atualizar-usuario-controller.interface';
+import { AtualizarUsuarioControllerInterface } from '@domain/interfaces/controllers/atualizar-usuario-controller.interface';
 import { ATUALIZAR_USUARIO_USE_CASE, AtualizarUsuarioUseCaseInterface } from '@domain/interfaces/use-cases/atualizar-usuario.use-case.interface';
 
 @Injectable({
