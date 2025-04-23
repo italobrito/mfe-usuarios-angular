@@ -1,0 +1,22 @@
+.modal-warning .modal-header {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.modal-confirmation .modal-header {
+//   background-color: #dc3545;
+  background-color: rgb(220,220,220);
+  color: rgb(90,90,90);
+}
+
+.modal-warning .modal-footer .btn-danger {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: #000;
+}
+
+.modal-confirmation .modal-footer .btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: #fff;
+}

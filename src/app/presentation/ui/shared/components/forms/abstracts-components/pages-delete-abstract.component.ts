@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PagesDefaultAbstractComponent } from './pages-default-abstract.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'pages-read-delete-abstract-component',
@@ -11,6 +12,8 @@ import { PagesDefaultAbstractComponent } from './pages-default-abstract.componen
 })
 export abstract class PagesDeleteAbstractComponent extends PagesDefaultAbstractComponent {
   
+  protected router: ActivatedRoute = inject(ActivatedRoute);
+
   _formularioCarregado: boolean = false;
 
   ngOnInit(): void {
@@ -23,15 +26,15 @@ export abstract class PagesDeleteAbstractComponent extends PagesDefaultAbstractC
   abstract persistirDados(): void;
 
   solicitarPersistencia(): void {
-    this.componente.ativarValidacoes();
-    console.log('this.componente._formulario.valid = ', this.componente._formulario.valid);
-    console.log('this.componente._formulario.getRawValue() = ', this.componente._formulario.getRawValue());
-    console.log('this.componente._formulario.getRawValue() = ', this.componente._formulario);
     if (this._formularioCarregado) {
       this.persistirDados();
     } else {
-      this.notificador.adicionarMensagem('Atenção', 'O formulário está incompleto', 'atenção');
+      this.notificador.adicionarMensagem('Atenção', 'O formulário não foi carregado.', 'atenção');
     }
   }
 
+  override confirmouAcaoModal() {
+    this.abrirFecharModal();
+    this.solicitarPersistencia();
+  }
 }

@@ -16,11 +16,24 @@ export abstract class PagesDefaultAbstractComponent {
   @ViewChild(NotificadorMensagensComponent) notificador!: NotificadorMensagensComponent;
   
   private location: Location = inject(Location);
-
+  
+  protected _isModalAberta: boolean = false;
   _habilitarBotaoPersistir: boolean = true;
 
   voltar(): void {
     this.location.back();
+  }
+
+  abrirFecharModal() {
+    this._isModalAberta = !this._isModalAberta;
+  }
+
+  confirmouAcaoModal() {
+    this.abrirFecharModal();
+  }
+
+  fecharModal() {
+    this.abrirFecharModal();
   }
 
   carregarDados(): void {
