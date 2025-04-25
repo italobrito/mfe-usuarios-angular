@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownType } from '@entities/dropdown-type';
 import { TIPOS_USUARIOS } from '@shared/constants/tipos-usuarios';
 
-import { ListarAbstractComponent } from '@shared/components/forms/abstracts-components/listar-abstract.component';
+import { PagesListAbstractComponent } from '@shared/components/forms/abstracts-components/pages-list-abstract.component';
 import { BtpDropdownComponent } from '@shared/components/inputs/btn-dropdown/btp-dropdown.component';
 import { BtnInputComponent } from '@shared/components/inputs/btn-input/btn-input.component';
 
@@ -36,7 +36,7 @@ import { removeAcentos } from '@shared/utils/remove-acentos';
   templateUrl: './listar.component.html',
   styleUrls: ['./listar.component.scss'],
 })
-export class ListarComponent extends ListarAbstractComponent<Usuario> {
+export class ListarComponent extends PagesListAbstractComponent<Usuario> {
 
   protected override rotaBase = 'usuarios';
   _listaTipoUsuario: Array<DropdownType> = TIPOS_USUARIOS;

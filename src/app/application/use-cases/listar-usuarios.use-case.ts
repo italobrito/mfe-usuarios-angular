@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 
-import { UsuarioRepositoryInterface } from '../../domain/interfaces/repositories/usuario-repository.interface';
-import { ListarUsuariosUseCaseInterface } from '../../domain/interfaces/use-cases/listar-usuarios.use-case.interface';
+import { UsuarioRepositoryInterface } from '@domain/interfaces/repositories/usuario-repository.interface';
+import { ListarUsuariosUseCaseInterface } from '@domain/interfaces/use-cases/listar-usuarios.use-case.interface';
+
 import { Usuario } from '@entities/usuario';
 
 @Injectable({

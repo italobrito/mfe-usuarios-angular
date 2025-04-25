@@ -2,16 +2,16 @@ import { Component } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { TEMA_SISTEMA } from 'src/app/presentation/ui/shared/constants/tema-sistema';
-import { TIPOS_USUARIOS } from 'src/app/presentation/ui/shared/constants/tipos-usuarios';
-import { TIPOS_STATUS_USUARIO } from 'src/app/presentation/ui/shared/constants/tipos-status-usuario';
+import { TEMA_SISTEMA } from '@ui/shared/constants/tema-sistema';
+import { TIPOS_USUARIOS } from '@ui/shared/constants/tipos-usuarios';
+import { TIPOS_STATUS_USUARIO } from '@ui/shared/constants/tipos-status-usuario';
 
 import { SubFormsAbstractComponent } from '../sub-forms-abstract-component';
 
 import { DropdownType } from '@entities/dropdown-type';
 
-import { BtnInputComponent } from 'src/app/presentation/ui/shared/components/inputs/btn-input/btn-input.component';
-import { BtpDropdownComponent } from 'src/app/presentation/ui/shared/components/inputs/btn-dropdown/btp-dropdown.component';
+import { BtnInputComponent } from '@ui/shared/components/inputs/btn-input/btn-input.component';
+import { BtpDropdownComponent } from '@ui/shared/components/inputs/btn-dropdown/btp-dropdown.component';
 
 @Component({
   selector: 'app-informacoes-profissionais',

@@ -1,4 +1,5 @@
 import { InjectionToken } from "@angular/core";
+
 import { Usuario, UsuarioFormulario } from "@entities/usuario";
 
 export interface UsuarioRepositoryInterface {

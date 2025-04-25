@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
     selector: 'listar-abstract-component',
     template: '',
 })
-export abstract class ListarAbstractComponent<T> implements OnInit {
+export abstract class PagesListAbstractComponent<T> implements OnInit {
 
     protected router: Router = inject(Router);
     protected formBuilder: FormBuilder = inject(FormBuilder);

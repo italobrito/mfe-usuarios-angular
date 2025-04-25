@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-avatar-imagem',

@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 import { PagesDefaultAbstractComponent } from './pages-default-abstract.component';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'pages-read-delete-abstract-component',

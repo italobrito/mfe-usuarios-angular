@@ -2,7 +2,7 @@ import { Input, Component, forwardRef, Provider } from '@angular/core';
 
 import { FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-import { getMensagemErro } from 'src/app/presentation/ui/shared/forms-builders-validators/validators/DescricoesErros';
+import { getMensagemErro } from '@shared/forms-builders-validators/validators/DescricoesErros';
 
 @Component({ selector: 'app-btns-abstract', template: '' })
 export abstract class BtnsAbstractComponent {

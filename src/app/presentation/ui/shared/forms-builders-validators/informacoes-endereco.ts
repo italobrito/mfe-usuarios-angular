@@ -1,6 +1,6 @@
 import { Validators } from "@angular/forms";
 
-import { validaCep } from "src/app/presentation/ui/shared/forms-builders-validators/validators/ValidaCep";
+import { validaCep } from "@shared/forms-builders-validators/validators/ValidaCep";
 
 export class EnderecoFormBuilderValidators {
     static getModel() {

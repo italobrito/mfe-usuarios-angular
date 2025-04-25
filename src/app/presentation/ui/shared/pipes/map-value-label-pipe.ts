@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { TIPOS_USUARIOS } from 'src/app/presentation/ui/shared/constants/tipos-usuarios';
-import { TIPOS_STATUS_USUARIO } from 'src/app/presentation/ui/shared/constants/tipos-status-usuario';
+import { TIPOS_USUARIOS } from '@shared/constants/tipos-usuarios';
+import { TIPOS_STATUS_USUARIO } from '@shared/constants/tipos-status-usuario';
 
 @Pipe({
   name: 'mapValueToLabel',

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { MaskDirective } from 'src/app/presentation/ui/shared/directives/MaskDirective';
+import { MaskDirective } from '@shared/directives/MaskDirective';
 
 import { BtnsAbstractComponent, getFormControlProvider } from '../btns-abstract';
 

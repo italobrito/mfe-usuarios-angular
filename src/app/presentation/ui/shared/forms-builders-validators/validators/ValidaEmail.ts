@@ -1,4 +1,5 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+
 import { descricoesErros } from './DescricoesErros';
 
 export function validaEmail(): ValidatorFn {

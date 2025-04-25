@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { Usuario, UsuarioFormulario } from 'src/app/domain/entities/usuario';
-import { UsuarioRepositoryInterface } from 'src/app/domain/interfaces/repositories/usuario-repository.interface';
+import { Usuario, UsuarioFormulario } from '@domain/entities/usuario';
+import { UsuarioRepositoryInterface } from '@domain/interfaces/repositories/usuario-repository.interface';
 
 @Injectable({ providedIn: 'root' })
 export class CrudUsuarioMockRepository implements UsuarioRepositoryInterface {
@@ -37,9 +37,9 @@ export class CrudUsuarioMockRepository implements UsuarioRepositoryInterface {
         tipoUsuario: 'C',
         status: 'A',
         cargo: 'Gerente',
-        dataAdmissao: '2022-01-15', 
-        setor: 'Contabilidade', 
-        temaPreferido: 'C',
+        dataAdmissao: '15/04/1987',
+        setor: 'Contabilidade',
+        temaPreferido: 'P',
       },
       avatar: 'dasdadas',
     },
@@ -51,7 +51,7 @@ export class CrudUsuarioMockRepository implements UsuarioRepositoryInterface {
         email: 'maria.clara@gmail.com',
         telefone: '(21) 9 9876 5432',
         dataNascimento: '10/08/1990',
-        cpf: '123.456.789-00',
+        cpf: '057.847.334-86',
         rg: '987654321',
       },
       endereco: {
@@ -65,11 +65,11 @@ export class CrudUsuarioMockRepository implements UsuarioRepositoryInterface {
       },
       informacoesProfissionais: {
         tipoUsuario: 'C',
-        status: 'I',
+        status: 'A',
         cargo: 'Analista de Recursos Humanos',
-        dataAdmissao: '2021-05-10',
+        dataAdmissao: '15/04/1987',
         setor: 'Recursos Humanos',
-        temaPreferido: 'Escuro',
+        temaPreferido: 'P',
       },
       avatar: 'avatar2.png',
     },
@@ -81,7 +81,7 @@ export class CrudUsuarioMockRepository implements UsuarioRepositoryInterface {
         email: 'carlos.eduardo@gmail.com',
         telefone: '(31) 9 8765 4321',
         dataNascimento: '25/12/1985',
-        cpf: '987.654.321-00',
+        cpf: '057.847.334-86',
         rg: '123456789',
       },
       endereco: {
@@ -97,9 +97,9 @@ export class CrudUsuarioMockRepository implements UsuarioRepositoryInterface {
         tipoUsuario: 'A',
         status: 'A',
         cargo: 'Coordenador de Projetos',
-        dataAdmissao: '2019-03-20',
+        dataAdmissao: '15/04/1987',
         setor: 'TI',
-        temaPreferido: 'C',
+        temaPreferido: 'P',
       },
       avatar: 'avatar3.png',
     },
@@ -111,7 +111,7 @@ export class CrudUsuarioMockRepository implements UsuarioRepositoryInterface {
         email: 'ana.beatriz@gmail.com',
         telefone: '(41) 9 7654 3210',
         dataNascimento: '05/06/1995',
-        cpf: '456.789.123-00',
+        cpf: '057.847.334-86',
         rg: '654321987',
       },
       endereco: {
@@ -124,36 +124,37 @@ export class CrudUsuarioMockRepository implements UsuarioRepositoryInterface {
         cep: '80020-310',
       },
       informacoesProfissionais: {
-        tipoUsuario: 'B',
-        status: 'A',
+        tipoUsuario: 'C',
+        status: 'I',
         cargo: 'Especialista em Marketing',
-        dataAdmissao: '2020-07-01',
+        dataAdmissao: '15/04/1987',
         setor: 'Marketing',
-        temaPreferido: 'Escuro',
+        temaPreferido: 'P',
       },
       avatar: 'avatar4.png',
-    },    
+    },
   ];
 
   cadastrar(usuario: UsuarioFormulario): Promise<UsuarioFormulario> {
-    usuario.id = this.usuarios.length + 1;
-    this.usuarios.push({ id: usuario.id, nome: usuario.informacoesPessoais.nomeCompleto, email: usuario.informacoesPessoais.email, tipoUsuario: usuario.informacoesProfissionais.tipoUsuario, status: usuario.informacoesProfissionais.status });
+    usuario.id = this.usuariosFormulario.length + 1;
+    this.usuariosFormulario.push(usuario);
     return Promise.resolve(usuario);
   }
 
   atualizar(id: number, usuario: UsuarioFormulario): Promise<UsuarioFormulario> {
-    const index = this.usuarios.findIndex((u) => u.id === id);
+    const index = this.usuariosFormulario.findIndex((u) => u.id === id);
     if (index !== -1) {
-      this.usuarios[index] = { id, nome: usuario.informacoesPessoais.nomeCompleto, email: usuario.informacoesPessoais.email, tipoUsuario: usuario.informacoesProfissionais.tipoUsuario, status: usuario.informacoesProfissionais.status };
+      this.usuariosFormulario[index] = usuario;
       return Promise.resolve(usuario);
     }
     return Promise.reject(new Error('Usuário não encontrado'));
   }
 
   deletar(usuarioId: number): Promise<void> {
-    const index = this.usuarios.findIndex((u) => u.id === usuarioId);
+    const index = this.usuariosFormulario.findIndex((u) => u.id === usuarioId);
     if (index !== -1) {
-      this.usuarios.splice(index, 1);
+      this.usuariosFormulario.splice(index, 1);
+      console.log(this.usuariosFormulario);
       return Promise.resolve();
     }
     return Promise.reject(new Error('Usuário não encontrado'));

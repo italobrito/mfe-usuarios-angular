@@ -1,7 +1,6 @@
 import { Component, inject, ViewChild } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 
-
 import { NotificadorMensagensComponent } from '@shared/components/notificador-mensagens/notificador-mensagens.component';
 import { InformacoesUsuarioComponent } from '@shared/components/forms/informacoes-usuario/informacoes-usuario.component';
 
