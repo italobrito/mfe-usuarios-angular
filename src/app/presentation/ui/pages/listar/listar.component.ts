@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -20,6 +20,10 @@ import { Usuario } from '@entities/usuario';
 import { filtrarPorPropriedades } from '@shared/utils/filtro-generico';
 import { removeAcentos } from '@shared/utils/remove-acentos';
 
+import { NotificadorMensagensComponent } from '@shared/components/notificador-mensagens/notificador-mensagens.component';
+import { ListarUsuariosProvidersModule } from '@shared/providers/listar-usuarios-providers.module';
+import { LISTAR_USUARIOS_CONTROLLER, ListarUsuariosControllerInterface } from '@domain/interfaces/controllers/listar-usuario-controller.interface';
+
 @Component({
   selector: 'app-listar-usuarios',
   standalone: true,
@@ -31,22 +35,19 @@ import { removeAcentos } from '@shared/utils/remove-acentos';
     ReactiveFormsModule,
     BtnInputComponent,
     BtpDropdownComponent,
-    MapValueToLabelPipe
+    MapValueToLabelPipe,
+    NotificadorMensagensComponent,
+    ListarUsuariosProvidersModule
   ],
   templateUrl: './listar.component.html',
   styleUrls: ['./listar.component.scss'],
 })
 export class ListarComponent extends PagesListAbstractComponent<Usuario> {
+  private usuarioController: ListarUsuariosControllerInterface = inject(LISTAR_USUARIOS_CONTROLLER);
 
   protected override rotaBase = 'usuarios';
   _listaTipoUsuario: Array<DropdownType> = TIPOS_USUARIOS;
   _listaStatus: Array<DropdownType> = TIPOS_STATUS_USUARIO;
-
-  override listaDados = [{ nome: 'João Silva', email: 'joao@email.com', tipoUsuario: 'A', status: 'A', id: 1 },
-  { nome: 'Maria Oliveira', email: 'maria@email.com', tipoUsuario: 'C', status: 'I', id: 2 },
-  { nome: 'Carlos Souza', email: 'carlos@email.com', tipoUsuario: 'A', status: 'A', id: 3 },
-  { nome: 'Ana Costa', email: 'ana@email.com', tipoUsuario: 'C', status: 'A', id: 4 },
-  { nome: 'Pedro Lima', email: 'pedro@email.com', tipoUsuario: 'C', status: 'I', id: 5 },] as Array<Usuario>;
 
   criarFormulario() {
     this.formulario = this.formBuilder.group({
@@ -56,9 +57,31 @@ export class ListarComponent extends PagesListAbstractComponent<Usuario> {
     });
   }
 
+  carregarDados(): void {
+    this.usuarioController.listar().then((usuarios: Usuario[]) => {
+      this.listaDados = usuarios;
+      console.log('Usuários listaDados:', this.listaDados);
+      this.listaPaginada = JSON.parse(JSON.stringify(this.listaDados));
+      this.atualizarPaginacao();
+    }).catch(error => {
+      this.notificador.adicionarMensagem('Erro', `${error}`, 'erro');
+    });
+  }
+
   aplicarFiltros(): void {
     const { nome, tipoUsuario, status } = this.formulario.value;
+
+    console.log('Usuários listaPaginada:', this.listaPaginada);
+
+    console.log('listaDados:', this.listaDados);
+
+    if (!nome && !tipoUsuario && !status) {
+      this.listaPaginada = JSON.parse(JSON.stringify(this.listaDados));
+      return;
+    }
+
     let usuarios = JSON.parse(JSON.stringify(this.listaDados));
+
     if (nome) {
       const nomeNormalizado = removeAcentos(nome.toLowerCase());
       usuarios = usuarios.filter((usuario: any) =>
@@ -69,8 +92,12 @@ export class ListarComponent extends PagesListAbstractComponent<Usuario> {
       tipoUsuario,
       status,
     });
+
     this.listaPaginada = usuarios;
-    console.log('Usuários filtrados:', this.listaPaginada);
-    // this.atualizarPaginacao();
+    this.atualizarPaginacao();
+  }
+
+  criarUsuario(): void {
+    this.router.navigate([`/${this.rotaBase}/cadastrar`]);
   }
 }

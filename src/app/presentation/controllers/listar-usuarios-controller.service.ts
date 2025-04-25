@@ -13,7 +13,7 @@ export class ListarUsuariosControllerService implements ListarUsuariosController
     @Inject(LISTAR_USUARIOS_USE_CASE) private listarUsuariosUseCase: ListarUsuariosUseCaseInterface
   ) { }
 
-  listar(): Promise<Array<Usuario>> {
+  listar(): Promise<Usuario[]> {
     return this.listarUsuariosUseCase.listar();
   }
 }

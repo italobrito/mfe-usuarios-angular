@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 
-import { UsuarioRepositoryInterface } from '@domain/interfaces/repositories/usuario-repository.interface';
+import { USUARIO_REPOSITORY, UsuarioRepositoryInterface } from '@domain/interfaces/repositories/usuario-repository.interface';
 import { ListarUsuariosUseCaseInterface } from '@domain/interfaces/use-cases/listar-usuarios.use-case.interface';
 
 import { Usuario } from '@entities/usuario';
@@ -11,10 +11,10 @@ import { Usuario } from '@entities/usuario';
 export class ListarUsuariosUseCase implements ListarUsuariosUseCaseInterface {
 
     constructor(
-        private usuarioRepository: UsuarioRepositoryInterface,
+        @Inject(USUARIO_REPOSITORY) private usuarioRepository: UsuarioRepositoryInterface
     ) { }
 
-    listar(): Promise<Array<Usuario>> {
+    listar(): Promise<Usuario[]> {
         return this.usuarioRepository.listar();
     }
 }

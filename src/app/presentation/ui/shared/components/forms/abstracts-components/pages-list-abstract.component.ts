@@ -1,12 +1,13 @@
 import { OnInit, inject, Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { PagesDefaultAbstractComponent } from './pages-default-abstract.component';
 
 @Component({
     selector: 'listar-abstract-component',
     template: '',
 })
-export abstract class PagesListAbstractComponent<T> implements OnInit {
+export abstract class PagesListAbstractComponent<T> extends PagesDefaultAbstractComponent implements OnInit {
 
     protected router: Router = inject(Router);
     protected formBuilder: FormBuilder = inject(FormBuilder);
@@ -24,21 +25,26 @@ export abstract class PagesListAbstractComponent<T> implements OnInit {
 
     ngOnInit(): void {
         this.criarFormulario();
-        this.carregarItens();
+        this.carregarDados();
         this.atualizarPaginacao();
     }
 
     abstract criarFormulario(): void;
 
+    abstract carregarDados(): void;
+
     atualizarPaginacao(): void {
-        const totalItens = this.listaDados.length;
+
+        const totalItens = this.listaPaginada.length;
+
         this.totalPaginas = Math.ceil(totalItens / this.itensPorPagina);
         this.paginas = Array.from({ length: this.totalPaginas }, (_, i) => i + 1);
-        this.alterarPagina(1);
-    }
 
-    carregarItens(): void {
-        this.listaPaginada = JSON.parse(JSON.stringify(this.listaDados));
+        console.log('totalItens = ', totalItens);
+        console.log('totalPaginas = ', this.totalPaginas);
+        console.log('paginas = ', this.paginas);
+
+        this.alterarPagina(1);
     }
 
     alterarPagina(pagina: number): void {

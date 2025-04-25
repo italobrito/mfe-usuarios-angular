@@ -29,9 +29,9 @@ export class VisualizarComponent extends PagesDefaultAbstractComponent {
 
   ngOnInit(): void {
     setTimeout(() => {
-        this.carregarDados();
+      this.carregarDados();
     }, 500)
-}
+  }
 
   carregarDados(): void {
     const id = this.router.snapshot.paramMap.get('id');
