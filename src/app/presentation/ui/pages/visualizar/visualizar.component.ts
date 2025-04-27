@@ -11,6 +11,7 @@ import { BuscarUsuarioPorIdProvidersModule } from '@shared/providers/buscar-usua
 import { BUSCAR_USUARIO_POR_ID_CONTROLLER, BuscarUsuarioPorIdControllerInterface } from '@domain/interfaces/controllers/buscar-usuario-por-id-controller.interface';
 
 import { UsuarioFormulario } from '@entities/usuario';
+import { BtnVoltarDirective } from '@shared/directives/btn-voltar.directive';
 
 @Component({
   selector: 'app-visualizar-usuario',
@@ -19,7 +20,8 @@ import { UsuarioFormulario } from '@entities/usuario';
     CommonModule,
     InformacoesUsuarioComponent,
     NotificadorMensagensComponent,
-    BuscarUsuarioPorIdProvidersModule
+    BuscarUsuarioPorIdProvidersModule,
+    BtnVoltarDirective
   ],
   templateUrl: './visualizar.component.html',
 })

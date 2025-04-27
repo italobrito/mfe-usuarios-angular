@@ -11,6 +11,8 @@ import { CADASTRAR_USUARIO_CONTROLLER, CadastrarUsuarioControllerInterface } fro
 import { UsuarioFormulario } from '@entities/usuario';
 
 import { CadastrarUsuarioProvidersModule } from '@shared/providers/cadastrar-usuario-providers.module';
+import { BtnCadastrarDirective } from '@shared/directives/btn-cadastrar.directive';
+import { BtnVoltarDirective } from '@shared/directives/btn-voltar.directive';
 
 @Component({
   selector: 'app-cadastrar-usuario',
@@ -20,7 +22,9 @@ import { CadastrarUsuarioProvidersModule } from '@shared/providers/cadastrar-usu
     InformacoesUsuarioComponent,
     NotificadorMensagensComponent,
     ModalComponent,
-    CadastrarUsuarioProvidersModule
+    CadastrarUsuarioProvidersModule,
+    BtnCadastrarDirective,
+    BtnVoltarDirective
   ],
   providers: [CadastrarUsuarioProvidersModule],
   templateUrl: './cadastrar.component.html',

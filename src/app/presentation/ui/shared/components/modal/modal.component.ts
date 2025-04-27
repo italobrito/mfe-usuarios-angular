@@ -1,10 +1,19 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { BtnAtualizarDirective } from '@shared/directives/btn-atualizar.directive';
+import { BtnDeletarDirective } from '@shared/directives/btn-deletar.directive';
+import { BtnCadastrarDirective } from '@shared/directives/btn-cadastrar.directive';
+
 @Component({
     selector: 'app-modal',
     standalone: true,
-    imports: [CommonModule],
+    imports: [
+        CommonModule,
+        BtnAtualizarDirective,
+        BtnDeletarDirective,
+        BtnCadastrarDirective
+    ],
     templateUrl: './modal.component.html',
     styleUrls: ['./modal.component.scss'],
 })
@@ -12,18 +21,17 @@ export class ModalComponent {
     @Input() isVisible: boolean = false;
     @Input() title: string = 'Confirmação';
     @Input() message: string = 'Tem certeza que deseja realizar esta ação?';
-    @Input() tipo: 'atenção' | 'confirmaçao' = 'confirmaçao';
-
-    @Output() onConfirm = new EventEmitter<void>();
-    @Output() onClose = new EventEmitter<void>();
+    @Input() origem: 'cadastrar' | 'atualizar' | 'deletar' | 'visualizar' = 'cadastrar';
+    @Output() onConfirmar = new EventEmitter<void>();
+    @Output() onFechar = new EventEmitter<void>();
 
     confirm(): void {
-        this.onConfirm.emit();
+        this.onConfirmar.emit();
         this.isVisible = false;
     }
 
     close(): void {
-        this.onClose.emit();
+        this.onFechar.emit();
         this.isVisible = false;
     }
 }

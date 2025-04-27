@@ -24,6 +24,10 @@ import { NotificadorMensagensComponent } from '@shared/components/notificador-me
 import { ListarUsuariosProvidersModule } from '@shared/providers/listar-usuarios-providers.module';
 import { LISTAR_USUARIOS_CONTROLLER, ListarUsuariosControllerInterface } from '@domain/interfaces/controllers/listar-usuario-controller.interface';
 import { PaginacaoComponent } from '@shared/components/paginacao/paginacao.component';
+import { BtnVoltarDirective } from '@shared/directives/btn-voltar.directive';
+import { BtnAtualizarDirective } from '@shared/directives/btn-atualizar.directive';
+import { BtnDeletarDirective } from '@shared/directives/btn-deletar.directive';
+import { BtnVisualizarDirective } from '@shared/directives/btn-visualizar.directive';
 
 @Component({
   selector: 'app-listar-usuarios',
@@ -39,7 +43,11 @@ import { PaginacaoComponent } from '@shared/components/paginacao/paginacao.compo
     MapValueToLabelPipe,
     NotificadorMensagensComponent,
     ListarUsuariosProvidersModule,
-    PaginacaoComponent
+    PaginacaoComponent,
+    BtnVoltarDirective,
+    BtnAtualizarDirective,
+    BtnDeletarDirective,
+    BtnVisualizarDirective
   ],
   templateUrl: './listar.component.html',
   styleUrls: ['./listar.component.scss'],

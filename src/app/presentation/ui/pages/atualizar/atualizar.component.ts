@@ -15,6 +15,8 @@ import { ATUALIZAR_USUARIO_CONTROLLER, AtualizarUsuarioControllerInterface } fro
 import { BUSCAR_USUARIO_POR_ID_CONTROLLER, BuscarUsuarioPorIdControllerInterface } from '@domain/interfaces/controllers/buscar-usuario-por-id-controller.interface';
 
 import { UsuarioFormulario } from '@entities/usuario';
+import { BtnAtualizarDirective } from '@shared/directives/btn-atualizar.directive';
+import { BtnVoltarDirective } from '@shared/directives/btn-voltar.directive';
 
 @Component({
     selector: 'app-atualizar-usuario',
@@ -26,6 +28,8 @@ import { UsuarioFormulario } from '@entities/usuario';
         ModalComponent,
         AtualizarUsuarioProvidersModule,
         BuscarUsuarioPorIdProvidersModule,
+        BtnAtualizarDirective,
+        BtnVoltarDirective
     ],
     templateUrl: './atualizar.component.html',
 })

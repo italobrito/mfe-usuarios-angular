@@ -40,9 +40,9 @@
           <td>{{ usuario.status | mapValueToLabel:'status' }}</td>
           <td>
             <div class="d-flex justify-content-center flex-wrap gap-2">
-              <button class="btn btn-sm btn-warning" (click)="editar(usuario)">Atualizar</button>
-              <button class="btn btn-sm btn-info" (click)="visualizar(usuario)">Visualizar</button>
-              <button class="btn btn-sm btn-danger" (click)="deletar(usuario)">Deletar</button>
+              <button btn-atualizar (click)="editar(usuario)"></button>
+              <button btn-visualizar (click)="visualizar(usuario)"></button>
+              <button btn-deletar (click)="deletar(usuario)"></button>
             </div>
           </td>
         </tr>
@@ -58,7 +58,7 @@
 </div>
 
 <div class="mt-3 mb-1 text-end">
-  <button class="btn btn-secondary me-2" (click)="voltar()">Voltar</button>
+  <button btn-voltar (click)="voltar()"></button>
   <button *ngIf="_habilitarBotaoPersistir" class="btn btn-primary me-2" (click)="criarUsuario()">Criar Usuário</button>
 </div>
 

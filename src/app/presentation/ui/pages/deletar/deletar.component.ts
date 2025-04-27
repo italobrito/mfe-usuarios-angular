@@ -13,6 +13,8 @@ import { DeletarUsuarioProvidersModule } from '@shared/providers/deletar-usuario
 import { BuscarUsuarioPorIdProvidersModule } from '@shared/providers/buscar-usuario-por-id-providers.module';
 
 import { UsuarioFormulario } from '@entities/usuario';
+import { BtnDeletarDirective } from '@shared/directives/btn-deletar.directive';
+import { BtnVoltarDirective } from '@shared/directives/btn-voltar.directive';
 
 @Component({
   selector: 'app-deletar-usuario',
@@ -23,7 +25,9 @@ import { UsuarioFormulario } from '@entities/usuario';
     NotificadorMensagensComponent,
     DeletarUsuarioProvidersModule,
     BuscarUsuarioPorIdProvidersModule,
-    ModalComponent
+    ModalComponent,
+    BtnDeletarDirective,
+    BtnVoltarDirective
   ],
   providers: [DeletarUsuarioProvidersModule],
   templateUrl: './deletar.component.html',
