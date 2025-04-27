@@ -8,11 +8,10 @@
     </div>
     <div class="col-md-4">
       <app-btp-dropdown label="Tipo Usuário" [control]="formulario.get('tipoUsuario')"
-      [options]="_listaTipoUsuario"></app-btp-dropdown>
+        [options]="_listaTipoUsuario"></app-btp-dropdown>
     </div>
     <div class="col-md-4">
-      <app-btp-dropdown label="Status" [control]="formulario.get('status')"
-      [options]="_listaStatus"></app-btp-dropdown>
+      <app-btp-dropdown label="Status" [control]="formulario.get('status')" [options]="_listaStatus"></app-btp-dropdown>
     </div>
     <div class="col-12">
       <button class="btn btn-primary w-100" (click)="setFluxoPaginacao()">Filtrar</button>
@@ -54,29 +53,13 @@
     </table>
   </div>
 
-  <!-- Paginação -->
-  <nav *ngIf="totalPaginas > 1" aria-label="Navegação de página">
-    <ul class="pagination justify-content-center">
-      <li class="page-item" [class.disabled]="paginaAtual === 1">
-        <button class="page-link" (click)="botaoAvancaOuRetornaPagina(paginaAtual - 1)">Anterior</button>
-      </li>
-      <li
-        class="page-item"
-        *ngFor="let pagina of paginas"
-        [class.active]="pagina === paginaAtual"
-      >
-        <button class="page-link" (click)="botaoAvancaOuRetornaPagina(pagina)">{{ pagina }}</button>
-      </li>
-      <li class="page-item" [class.disabled]="paginaAtual === totalPaginas">
-        <button class="page-link" (click)="botaoAvancaOuRetornaPagina(paginaAtual + 1)">Próximo</button>
-      </li>
-    </ul>
-  </nav>
+  <app-paginacao [totalPaginas]="totalPaginas" [paginaAtual]="paginaAtual" [paginas]="paginas"
+    (mudarPagina)="botaoAvancaOuRetornaPagina($event)"></app-paginacao>
 </div>
 
 <div class="mt-3 mb-1 text-end">
   <button class="btn btn-secondary me-2" (click)="voltar()">Voltar</button>
   <button *ngIf="_habilitarBotaoPersistir" class="btn btn-primary me-2" (click)="criarUsuario()">Criar Usuário</button>
-</div> 
+</div>
 
 <app-notificador-mensagens></app-notificador-mensagens>

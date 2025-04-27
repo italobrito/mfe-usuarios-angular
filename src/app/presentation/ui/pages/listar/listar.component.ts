@@ -23,6 +23,7 @@ import { removeAcentos } from '@shared/utils/remove-acentos';
 import { NotificadorMensagensComponent } from '@shared/components/notificador-mensagens/notificador-mensagens.component';
 import { ListarUsuariosProvidersModule } from '@shared/providers/listar-usuarios-providers.module';
 import { LISTAR_USUARIOS_CONTROLLER, ListarUsuariosControllerInterface } from '@domain/interfaces/controllers/listar-usuario-controller.interface';
+import { PaginacaoComponent } from '@shared/components/paginacao/paginacao.component';
 
 @Component({
   selector: 'app-listar-usuarios',
@@ -37,7 +38,8 @@ import { LISTAR_USUARIOS_CONTROLLER, ListarUsuariosControllerInterface } from '@
     BtpDropdownComponent,
     MapValueToLabelPipe,
     NotificadorMensagensComponent,
-    ListarUsuariosProvidersModule
+    ListarUsuariosProvidersModule,
+    PaginacaoComponent
   ],
   templateUrl: './listar.component.html',
   styleUrls: ['./listar.component.scss'],
