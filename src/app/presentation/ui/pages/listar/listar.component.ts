@@ -60,9 +60,7 @@ export class ListarComponent extends PagesListAbstractComponent<Usuario> {
   carregarDados(): void {
     this.usuarioController.listar().then((usuarios: Usuario[]) => {
       this.listaDados = usuarios;
-      console.log('Usuários listaDados:', this.listaDados);
-      this.listaPaginada = JSON.parse(JSON.stringify(this.listaDados));
-      this.atualizarPaginacao();
+      this.setFluxoPaginacao();
     }).catch(error => {
       this.notificador.adicionarMensagem('Erro', `${error}`, 'erro');
     });
@@ -70,31 +68,18 @@ export class ListarComponent extends PagesListAbstractComponent<Usuario> {
 
   aplicarFiltros(): void {
     const { nome, tipoUsuario, status } = this.formulario.value;
-
-    console.log('Usuários listaPaginada:', this.listaPaginada);
-
-    console.log('listaDados:', this.listaDados);
-
-    if (!nome && !tipoUsuario && !status) {
-      this.listaPaginada = JSON.parse(JSON.stringify(this.listaDados));
-      return;
-    }
-
-    let usuarios = JSON.parse(JSON.stringify(this.listaDados));
-
+    let usuariosFiltrados = JSON.parse(JSON.stringify(this.listaDados));
     if (nome) {
       const nomeNormalizado = removeAcentos(nome.toLowerCase());
-      usuarios = usuarios.filter((usuario: any) =>
+      usuariosFiltrados = usuariosFiltrados.filter((usuario: any) =>
         removeAcentos(usuario.nome.toLowerCase()).includes(nomeNormalizado)
       );
     }
-    usuarios = filtrarPorPropriedades(usuarios, {
+    usuariosFiltrados = filtrarPorPropriedades(usuariosFiltrados, {
       tipoUsuario,
       status,
     });
-
-    this.listaPaginada = usuarios;
-    this.atualizarPaginacao();
+    this.listaPaginada = usuariosFiltrados;
   }
 
   criarUsuario(): void {

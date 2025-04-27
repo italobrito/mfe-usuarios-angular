@@ -26,35 +26,49 @@ export abstract class PagesListAbstractComponent<T> extends PagesDefaultAbstract
     ngOnInit(): void {
         this.criarFormulario();
         this.carregarDados();
-        this.atualizarPaginacao();
     }
 
     abstract criarFormulario(): void;
 
     abstract carregarDados(): void;
 
-    atualizarPaginacao(): void {
+    abstract aplicarFiltros(): void;
 
-        const totalItens = this.listaPaginada.length;
-
-        this.totalPaginas = Math.ceil(totalItens / this.itensPorPagina);
-        this.paginas = Array.from({ length: this.totalPaginas }, (_, i) => i + 1);
-
-        console.log('totalItens = ', totalItens);
-        console.log('totalPaginas = ', this.totalPaginas);
-        console.log('paginas = ', this.paginas);
-
-        this.alterarPagina(1);
+    setFluxoPaginacao(): void {
+        this.aplicarFiltros();
+        this.realizaContagemPaginas();
+        this.setPaginaAtual();
+        this.setIntervaloValoresPaginados();
     }
 
-    alterarPagina(pagina: number): void {
-        if (pagina < 1 || pagina > this.totalPaginas) {
+    botaoAvancaOuRetornaPagina(pagina: number): void {
+        this.aplicarFiltros();
+        this.setPaginaAtual(pagina);
+        this.setIntervaloValoresPaginados();
+    }
+
+    setIntervaloValoresPaginados(): void {
+        const inicio = (this.paginaAtual - 1) * this.itensPorPagina;
+        const fim = inicio + this.itensPorPagina;
+        this.listaPaginada = this.listaPaginada.slice(inicio, fim);
+    }
+
+    realizaContagemPaginas(): void {
+        const totalPag = Math.ceil(this.listaPaginada.length / this.itensPorPagina)
+        if (this.listaPaginada.length > this.itensPorPagina) {
+            this.paginas = Array.from({ length: totalPag }, (_, i) => i + 1);
+        } else {
+            this.paginas = [1];
+        }
+        this.totalPaginas = totalPag;
+    }
+
+    setPaginaAtual(numeroPagina?: number): void {
+        if (!numeroPagina) {
+            this.paginaAtual = 1
             return;
         }
-        this.paginaAtual = pagina;
-        const inicio = (pagina - 1) * this.itensPorPagina;
-        const fim = inicio + this.itensPorPagina;
-        this.listaPaginada = this.listaDados.slice(inicio, fim);
+        this.paginaAtual = numeroPagina;
     }
 
     filtroSelect(listaDados: Array<T>, chave: string): Array<T> {

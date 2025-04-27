@@ -16,7 +16,13 @@ export class CrudUsuarioMockRepository implements UsuarioRepositoryInterface {
     { id: 7, nome: 'Lucas Silva', email: 'lucas.silva@gmail.com', tipoUsuario: 'A', status: 'A' },
     { id: 8, nome: 'Mariana Santos', email: 'mariana.santos@gmail.com', tipoUsuario: 'C', status: 'A' },
     { id: 9, nome: 'Rafael Oliveira', email: 'rafael.oliveira@gmail.com', tipoUsuario: 'C', status: 'I' },
-    { id: 10, nome: 'Beatriz Lima', email: 'beatriz.lima@gmail.com', tipoUsuario: 'A', status: 'A' },
+    { id: 10, nome: 'Lucas Silva', email: 'lucas.silva@gmail.com', tipoUsuario: 'A', status: 'A' },
+    { id: 11, nome: 'Mariana Santos', email: 'mariana.santos@gmail.com', tipoUsuario: 'A', status: 'A' },
+    { id: 12, nome: 'Rafael Oliveira', email: 'rafael.oliveira@gmail.com', tipoUsuario: 'A', status: 'A' },
+    { id: 13, nome: 'Beatriz Lima', email: 'beatriz.lima@gmail.com', tipoUsuario: 'A', status: 'A' },
+    { id: 14, nome: 'Beatriz Lima', email: 'beatriz.lima@gmail.com', tipoUsuario: 'A', status: 'A' },
+    // { id: 15, nome: 'Beatriz Lima', email: 'beatriz.lima@gmail.com', tipoUsuario: 'A', status: 'A' },
+    // { id: 16, nome: 'Beatriz Lima', email: 'beatriz.lima@gmail.com', tipoUsuario: 'A', status: 'A' },
   ];
 
   private usuariosFormulario: UsuarioFormulario[] = [
