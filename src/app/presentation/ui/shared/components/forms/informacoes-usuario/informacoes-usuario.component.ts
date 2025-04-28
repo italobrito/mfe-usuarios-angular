@@ -13,8 +13,9 @@ import { EnderecoFormBuilderValidators } from '@shared/forms-builders-validators
 import { InformacoesPessoaisComponent } from '@shared/components/forms/sub-forms/informacoes-pessoais/informacoes-pessoais.component';
 import { InformacoesEnderecoComponent } from '@shared/components/forms/sub-forms/informacoes-endereco/informacoes-endereco.component';
 import { InformacoesProfissionaisComponent } from '@shared/components/forms/sub-forms/informacoes-profissionais/informacoes-profissionais.component';
-import { AvatarImagemComponent } from '@shared/components/avatar-imagem/avatar-imagem.component';
 
+
+import { AvatarImagemComponent } from 'shared-forms';
 import { NotificadorMensagensComponent } from '@shared/components/notificador-mensagens/notificador-mensagens.component';
 import { FormsAbstractComponent } from '@shared/components/forms/abstracts-components/forms-abstract.component';
 
@@ -29,7 +30,7 @@ import { FormsAbstractComponent } from '@shared/components/forms/abstracts-compo
     InformacoesPessoaisComponent,
     InformacoesEnderecoComponent,
     InformacoesProfissionaisComponent,
-    NotificadorMensagensComponent
+    NotificadorMensagensComponent,
   ],
   templateUrl: './informacoes-usuario.component.html',
 })

@@ -4,26 +4,27 @@ import { RouterModule } from '@angular/router';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { DropdownType } from '@entities/dropdown-type';
-import { TIPOS_USUARIOS } from '@shared/constants/tipos-usuarios';
-
 import { PagesListAbstractComponent } from '@shared/components/forms/abstracts-components/pages-list-abstract.component';
+
 import { BtpDropdownComponent } from '@shared/components/inputs/btn-dropdown/btp-dropdown.component';
 import { BtnInputComponent } from '@shared/components/inputs/btn-input/btn-input.component';
+import { NotificadorMensagensComponent } from '@shared/components/notificador-mensagens/notificador-mensagens.component';
+import { PaginacaoComponent } from '@shared/components/paginacao/paginacao.component';
 
+import { DropdownType } from '@entities/dropdown-type';
+import { Usuario } from '@entities/usuario';
+
+import { TIPOS_USUARIOS } from '@shared/constants/tipos-usuarios';
 import { TIPOS_STATUS_USUARIO } from '@shared/constants/tipos-status-usuario';
 
-import { MapValueToLabelPipe } from '@shared/pipes/map-value-label-pipe';
-
-import { Usuario } from '@entities/usuario';
+import { MapearValorLabelPipe } from '@shared/pipes/mapear-valor-label-pipe';
 
 import { filtrarPorPropriedades } from '@shared/utils/filtro-generico';
 import { removeAcentos } from '@shared/utils/remove-acentos';
 
-import { NotificadorMensagensComponent } from '@shared/components/notificador-mensagens/notificador-mensagens.component';
 import { ListarUsuariosProvidersModule } from '@shared/providers/listar-usuarios-providers.module';
 import { LISTAR_USUARIOS_CONTROLLER, ListarUsuariosControllerInterface } from '@domain/interfaces/controllers/listar-usuario-controller.interface';
-import { PaginacaoComponent } from '@shared/components/paginacao/paginacao.component';
+
 import { BtnVoltarDirective } from '@shared/directives/btn-voltar.directive';
 import { BtnAtualizarDirective } from '@shared/directives/btn-atualizar.directive';
 import { BtnDeletarDirective } from '@shared/directives/btn-deletar.directive';
@@ -40,7 +41,7 @@ import { BtnVisualizarDirective } from '@shared/directives/btn-visualizar.direct
     ReactiveFormsModule,
     BtnInputComponent,
     BtpDropdownComponent,
-    MapValueToLabelPipe,
+    MapearValorLabelPipe,
     NotificadorMensagensComponent,
     ListarUsuariosProvidersModule,
     PaginacaoComponent,
