@@ -2,19 +2,8 @@ import { inject, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { InformacoesUsuarioComponent } from '@shared/components/forms/informacoes-usuario/informacoes-usuario.component';
-import { NotificadorMensagensComponent } from '@shared/components/notificador-mensagens/notificador-mensagens.component';
-import { PagesDeleteAbstractComponent } from '@shared/components/forms/abstracts-components/pages-delete-abstract.component';
-import { ModalComponent } from '@shared/components/modal/modal.component';
-
-import { DELETAR_USUARIO_CONTROLLER, DeletarUsuarioControllerInterface } from '@domain/interfaces/controllers/deletar-usuario-controller.interface';
-import { BUSCAR_USUARIO_POR_ID_CONTROLLER, BuscarUsuarioPorIdControllerInterface } from '@domain/interfaces/controllers/buscar-usuario-por-id-controller.interface';
-
-import { DeletarUsuarioProvidersModule } from '@shared/providers/deletar-usuario-providers.module';
-import { BuscarUsuarioPorIdProvidersModule } from '@shared/providers/buscar-usuario-por-id-providers.module';
-
-import { UsuarioFormulario } from '@entities/usuario';
-import { BtnDeletarDirective } from '@shared/directives/btn-deletar.directive';
-import { BtnVoltarDirective } from '@shared/directives/btn-voltar.directive';
+import { BtnDeletarDirective, BtnVoltarDirective, BUSCAR_USUARIO_POR_ID_CONTROLLER, BuscarUsuarioPorIdControllerInterface, BuscarUsuarioPorIdProvidersModule, DELETAR_USUARIO_CONTROLLER, DeletarUsuarioControllerInterface, DeletarUsuarioProvidersModule, ModalComponent, NotificadorMensagensComponent, PagesDeleteAbstractComponent } from 'shared-forms';
+import { UsuarioFormulario } from 'shared-forms/lib/domain/entities/usuario';
 
 @Component({
   selector: 'app-deletar-usuario',
@@ -32,7 +21,7 @@ import { BtnVoltarDirective } from '@shared/directives/btn-voltar.directive';
   providers: [DeletarUsuarioProvidersModule],
   templateUrl: './deletar.component.html',
 })
-export class DeletarComponent extends PagesDeleteAbstractComponent {
+export class DeletarComponent extends PagesDeleteAbstractComponent<InformacoesUsuarioComponent> {
   private deletarUsuario: DeletarUsuarioControllerInterface = inject(DELETAR_USUARIO_CONTROLLER);
   private buscarUsuarioPorId: BuscarUsuarioPorIdControllerInterface = inject(BUSCAR_USUARIO_POR_ID_CONTROLLER);
 

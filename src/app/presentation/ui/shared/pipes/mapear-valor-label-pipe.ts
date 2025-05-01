@@ -1,7 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { TIPOS_USUARIOS } from '@shared/constants/tipos-usuarios';
-import { TIPOS_STATUS_USUARIO } from '@shared/constants/tipos-status-usuario';
+import { TIPOS_STATUS_USUARIO, TIPOS_USUARIOS } from 'shared-forms';
 
 @Pipe({
   name: 'mapearValorLabel',

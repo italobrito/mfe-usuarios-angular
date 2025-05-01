@@ -2,16 +2,10 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
+import { BtnVoltarDirective, BuscarUsuarioPorIdProvidersModule, NotificadorMensagensComponent, PagesDefaultAbstractComponent } from 'shared-forms';
 import { InformacoesUsuarioComponent } from '@shared/components/forms/informacoes-usuario/informacoes-usuario.component';
-import { PagesDefaultAbstractComponent } from '@shared/components/forms/abstracts-components/pages-default-abstract.component';
-import { NotificadorMensagensComponent } from '@shared/components/notificador-mensagens/notificador-mensagens.component';
-
-import { BuscarUsuarioPorIdProvidersModule } from '@shared/providers/buscar-usuario-por-id-providers.module';
-
-import { BUSCAR_USUARIO_POR_ID_CONTROLLER, BuscarUsuarioPorIdControllerInterface } from '@domain/interfaces/controllers/buscar-usuario-por-id-controller.interface';
-
-import { UsuarioFormulario } from '@entities/usuario';
-import { BtnVoltarDirective } from '@shared/directives/btn-voltar.directive';
+import { BuscarUsuarioPorIdControllerInterface, BUSCAR_USUARIO_POR_ID_CONTROLLER } from 'shared-forms';
+import { UsuarioFormulario } from 'shared-forms/lib/domain/entities/usuario';
 
 @Component({
   selector: 'app-visualizar-usuario',
@@ -25,7 +19,7 @@ import { BtnVoltarDirective } from '@shared/directives/btn-voltar.directive';
   ],
   templateUrl: './visualizar.component.html',
 })
-export class VisualizarComponent extends PagesDefaultAbstractComponent {
+export class VisualizarComponent extends PagesDefaultAbstractComponent<InformacoesUsuarioComponent> {
   private usuarioController: BuscarUsuarioPorIdControllerInterface = inject(BUSCAR_USUARIO_POR_ID_CONTROLLER);
   private router: ActivatedRoute = inject(ActivatedRoute);
 

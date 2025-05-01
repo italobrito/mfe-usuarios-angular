@@ -4,31 +4,10 @@ import { RouterModule } from '@angular/router';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { PagesListAbstractComponent } from '@shared/components/forms/abstracts-components/pages-list-abstract.component';
-
-import { BtpDropdownComponent } from '@shared/components/inputs/btn-dropdown/btp-dropdown.component';
-import { BtnInputComponent } from '@shared/components/inputs/btn-input/btn-input.component';
-import { NotificadorMensagensComponent } from '@shared/components/notificador-mensagens/notificador-mensagens.component';
-import { PaginacaoComponent } from '@shared/components/paginacao/paginacao.component';
-
-import { DropdownType } from '@entities/dropdown-type';
-import { Usuario } from '@entities/usuario';
-
-import { TIPOS_USUARIOS } from '@shared/constants/tipos-usuarios';
-import { TIPOS_STATUS_USUARIO } from '@shared/constants/tipos-status-usuario';
-
 import { MapearValorLabelPipe } from '@shared/pipes/mapear-valor-label-pipe';
-
-import { filtrarPorPropriedades } from '@shared/utils/filtro-generico';
-import { removeAcentos } from '@shared/utils/remove-acentos';
-
-import { ListarUsuariosProvidersModule } from '@shared/providers/listar-usuarios-providers.module';
-import { LISTAR_USUARIOS_CONTROLLER, ListarUsuariosControllerInterface } from '@domain/interfaces/controllers/listar-usuario-controller.interface';
-
-import { BtnVoltarDirective } from '@shared/directives/btn-voltar.directive';
-import { BtnAtualizarDirective } from '@shared/directives/btn-atualizar.directive';
-import { BtnDeletarDirective } from '@shared/directives/btn-deletar.directive';
-import { BtnVisualizarDirective } from '@shared/directives/btn-visualizar.directive';
+import { BtnAtualizarDirective, BtnDeletarDirective, BtnInputComponent, BtnVisualizarDirective, BtnVoltarDirective, BtpDropdownComponent, filtrarPorPropriedades, LISTAR_USUARIOS_CONTROLLER, ListarUsuariosControllerInterface, ListarUsuariosProvidersModule, NotificadorMensagensComponent, PagesListAbstractComponent, PaginacaoComponent, removeAcentos, TIPOS_STATUS_USUARIO, TIPOS_USUARIOS } from 'shared-forms';
+import { Usuario } from 'shared-forms/lib/domain/entities/usuario';
+import { DropdownType } from 'shared-forms/lib/domain/entities/dropdown-type';
 
 @Component({
   selector: 'app-listar-usuarios',

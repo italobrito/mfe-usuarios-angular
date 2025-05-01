@@ -6,18 +6,17 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 
-import { InformacoesPessoaisFormBuilderValidators } from '@shared/forms-builders-validators/informacoes-pessoais';
-import { InformacoesProfissionaisFormBuilderValidators } from '@shared/forms-builders-validators/informacoes-profissionais';
-import { EnderecoFormBuilderValidators } from '@shared/forms-builders-validators/informacoes-endereco';
-
-import { InformacoesPessoaisComponent } from '@shared/components/forms/sub-forms/informacoes-pessoais/informacoes-pessoais.component';
-import { InformacoesEnderecoComponent } from '@shared/components/forms/sub-forms/informacoes-endereco/informacoes-endereco.component';
-import { InformacoesProfissionaisComponent } from '@shared/components/forms/sub-forms/informacoes-profissionais/informacoes-profissionais.component';
-
-
-import { AvatarImagemComponent } from 'shared-forms';
-import { NotificadorMensagensComponent } from '@shared/components/notificador-mensagens/notificador-mensagens.component';
-import { FormsAbstractComponent } from '@shared/components/forms/abstracts-components/forms-abstract.component';
+import { 
+  AvatarImagemComponent, 
+  FormsAbstractComponent, 
+  InformacoesPessoaisComponent, 
+  InformacoesEnderecoComponent, 
+  InformacoesProfissionaisComponent, 
+  NotificadorMensagensComponent,
+  InformacoesPessoaisFormBuilderValidators,
+  EnderecoFormBuilderValidators,
+  InformacoesProfissionaisFormBuilderValidators
+} from 'shared-forms';
 
 @Component({
   selector: 'app-informacoes-usuario',

@@ -2,17 +2,8 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { InformacoesUsuarioComponent } from '@shared/components/forms/informacoes-usuario/informacoes-usuario.component';
-import { NotificadorMensagensComponent } from '@shared/components/notificador-mensagens/notificador-mensagens.component';
-import { PagesCreateUpdateAbstractComponent } from '@shared/components/forms/abstracts-components/pages-create-update-abstract.component';
-import { ModalComponent } from '@shared/components/modal/modal.component';
-
-import { CADASTRAR_USUARIO_CONTROLLER, CadastrarUsuarioControllerInterface } from '@domain/interfaces/controllers/cadastrar-usuario-controller.interface';
-
-import { UsuarioFormulario } from '@entities/usuario';
-
-import { CadastrarUsuarioProvidersModule } from '@shared/providers/cadastrar-usuario-providers.module';
-import { BtnCadastrarDirective } from '@shared/directives/btn-cadastrar.directive';
-import { BtnVoltarDirective } from '@shared/directives/btn-voltar.directive';
+import { BtnCadastrarDirective, BtnVoltarDirective, CADASTRAR_USUARIO_CONTROLLER, CadastrarUsuarioControllerInterface, CadastrarUsuarioProvidersModule, ModalComponent, NotificadorMensagensComponent, PagesCreateUpdateAbstractComponent } from 'shared-forms';
+import { UsuarioFormulario } from 'shared-forms/lib/domain/entities/usuario';
 
 @Component({
   selector: 'app-cadastrar-usuario',
@@ -29,7 +20,7 @@ import { BtnVoltarDirective } from '@shared/directives/btn-voltar.directive';
   providers: [CadastrarUsuarioProvidersModule],
   templateUrl: './cadastrar.component.html',
 })
-export class CadastrarComponent extends PagesCreateUpdateAbstractComponent implements OnInit {
+export class CadastrarComponent extends PagesCreateUpdateAbstractComponent<InformacoesUsuarioComponent> implements OnInit {
   private usuarioController: CadastrarUsuarioControllerInterface = inject(CADASTRAR_USUARIO_CONTROLLER);
 
   ngOnInit(): void {
